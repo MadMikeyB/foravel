@@ -11,6 +11,7 @@ Grateful to use:
 * [Sluggable](https://github.com/cviebrock/eloquent-sluggable)
 * ~~[SEO Tools](https://github.com/artesaos/seotools/)~~ - Coming Soon
 * [Breadcrumbs](https://github.com/davejamesmiller/laravel-breadcrumbs/)
+* [BBCode Parser](https://github.com/golonka/bbcodeparser)
 
 ## Installation for Testing Purposes
 
