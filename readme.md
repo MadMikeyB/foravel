@@ -25,6 +25,8 @@ Grateful to use:
 * visit localhost/foravel/public (or wherever you cloned the repo to)
 * Register a user and play
 
+NB: Initial Forum Creation must be done through the Database, add a row to the forums table. Forum rows with a `parent` of `0` will be treated as categories.
+
 ## License
 
 Copyright [2016] [Michael Burton](http://mikeylicio.us)
