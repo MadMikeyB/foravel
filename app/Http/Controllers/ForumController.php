@@ -13,6 +13,17 @@ use App\Post;
 
 class ForumController extends Controller
 {
+
+    /**
+     * Initialize Controller
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => 'create']);
+    }
+    
     /**
      * Display a listing of the resource.
      *

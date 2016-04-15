@@ -13,7 +13,16 @@ use Auth;
 
 class ThreadController extends Controller
 {
-
+    /**
+     * Initialize Controller
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => 'create']);
+    }
+    
     /**
      * Display a listing of the resource.
      *

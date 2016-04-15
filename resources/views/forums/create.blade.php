@@ -17,6 +17,12 @@
 		<textarea name="description" id="description" class="form-control" rows="3" required="required"></textarea>
 	</div>
 
+	<div class="form-group">
+		<label for="name">Forum Parent</label>
+		<input type="number" class="form-control" id="parent" name="parent" placeholder="Forum Parent">
+	</div>
+
+
 	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

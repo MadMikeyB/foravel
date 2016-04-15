@@ -21,12 +21,15 @@ Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('forums', ['as' => 'forums', 'uses' => 'ForumController@index']);
 
+Route::get('forums/create', ['as' => 'create_forum', 'uses' => 'ForumController@create']);
+
 Route::get('forums/{forums}', ['as' => 'show_forum', 'uses' => 'ForumController@show']);
 Route::get('forums/{forums}/create', ['as' => 'create_thread', 'uses' => 'ThreadController@create']);
 
 
 Route::get('forums/{forums}/{threads}', ['as' => 'show_thread', 'uses' => 'ThreadController@show']);
 
+Route::post('forums', ['as' => 'store_forum', 'uses' => 'ForumController@store']);
 Route::post('forums/{forums}/{threads}', 'PostController@store');
 Route::post('forums/{forums}', 'ThreadController@store');
 

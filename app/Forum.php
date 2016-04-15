@@ -24,7 +24,7 @@ class Forum extends Model implements SluggableInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'slug'
+        'name', 'description', 'slug', 'parent'
     ];
 
     // hasMany Thread

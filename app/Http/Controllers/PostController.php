@@ -14,6 +14,16 @@ use Auth;
 class PostController extends Controller
 {
     /**
+     * Initialize Controller
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => 'store']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
