@@ -20,6 +20,12 @@
 	<div class="form-group">
 		<label for="name">Forum Parent</label>
 		<input type="number" class="form-control" id="parent" name="parent" placeholder="Forum Parent">
+		<p class="text-muted">Enter 0 for Category</p>
+	</div>
+
+	<div class="form-group">
+		<label for="name">Forum Position</label>
+		<input type="number" class="form-control" id="position" name="position" placeholder="Forum Position">
 	</div>
 
 
