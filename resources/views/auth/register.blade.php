@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Sign Up for Foravel -')
+
 
 @section('content')
 <div class="container">

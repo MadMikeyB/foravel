@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', $thread->title .' - '. $thread->forum->name .' -')
+
 @section('content')
 {!! Breadcrumbs::render('show_thread', $thread) !!}
 

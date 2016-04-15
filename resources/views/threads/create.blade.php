@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Create Thread in '. $forum->name .' -')
+
+
 @section('content')
 
 <div class="page-header">

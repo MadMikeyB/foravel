@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('title', $forum->name . ' -')
+
 @section('content')
 {!! Breadcrumbs::render('show_forum', $forum) !!}
 

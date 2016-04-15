@@ -4,7 +4,7 @@
 {!! Breadcrumbs::render('forum') !!}
 
 <div class="page-header">
-  <h1>forums.fielfront.com
+  <h1>Foravel
   <small></small></h1>
 </div>
 
