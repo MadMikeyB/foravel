@@ -31,7 +31,7 @@ Route::group(['middleware' => ['web', 'auth', 'menu', 'admin']], function() {
 
     Route::post('admin/menus', 'AdminController@storeMenu');
     
-    Route::get('posts/create', 'PostsController@create');
+    Route::get('posts/create', ['as' => 'create_post', 'uses' => 'PostsController@create']);
     Route::post('posts', 'PostsController@store');
 
     Route::get('pages/create', 'AdminController@createPage');

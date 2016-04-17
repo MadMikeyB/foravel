@@ -42,6 +42,14 @@ Breadcrumbs::register('all_posts', function($breadcrumbs)
     $breadcrumbs->push('Posts', route('all_posts'));
 });
 
+// Home > Posts
+Breadcrumbs::register('create_post', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Posts', route('all_posts'));
+    $breadcrumbs->push('Create Post', route('create_post'));
+});
+
 // Home > Posts > [Post]
 Breadcrumbs::register('show_post', function($breadcrumbs, $post)
 {
