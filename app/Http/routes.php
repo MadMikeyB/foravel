@@ -82,10 +82,10 @@ Route::group(['middleware' => ['web', 'menu']], function () {
         Route::auth();
 
     // Posts 
-        Route::get('posts', 'PostsController@index');
+        Route::get('posts', ['as' => 'all_posts', 'uses' => 'PostsController@index']);
         
         // Edit Post
-        Route::get('posts/{post}/edit', 'PostsController@edit');
+        Route::get('posts/{post}/edit', ['as' => 'edit_post', 'uses' => 'PostsController@edit']);
         
         // Add Images to Post
         Route::post('posts/{post}/images', 'PostsController@storeImage');
@@ -94,7 +94,7 @@ Route::group(['middleware' => ['web', 'menu']], function () {
         Route::patch('posts/{post}', 'PostsController@update');
 
         // Get Post
-        Route::get('read/{post}', 'PostsController@show');
+        Route::get('read/{post}', ['as' => 'show_post', 'uses' => 'PostsController@show']);
 
         // Delete Post
         Route::delete('posts/{post}/delete', 'PostsController@destroy');
@@ -119,9 +119,9 @@ Route::group(['middleware' => ['web', 'menu']], function () {
 
     // Profiles
         // Show Profile
-        Route::get('@{user}', 'ProfileController@show');
+        Route::get('@{user}', ['as' => 'show_profile', 'uses' => 'ProfileController@show']);
         // Edit Profile
-        Route::get('@{user}/edit', 'ProfileController@edit');
+        Route::get('@{user}/edit', ['as' => 'edit_profile', 'uses' => 'ProfileController@edit']);
         // Update Profile
         Route::patch('@{user}', 'ProfileController@update');
         // Deactivate Profile

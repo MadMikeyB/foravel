@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('home') !!}
+@stop
+
 @section('content')
 <h2><span>Latest News</span></h2>
     @unless ( $posts->isEmpty() )

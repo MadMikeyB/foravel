@@ -1,5 +1,10 @@
-@extends('layouts.app') @section('content')
-	{{-- <h2><span>{{ $post->title }}</span></h2> --}}
+@extends('layouts.app') 
+
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('show_post', $post) !!}
+@stop
+
+@section('content')
 	<div class="article-full">
 		<div class="article-main-photo">
 			@unless ( $post->images->isEmpty() )

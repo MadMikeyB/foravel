@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('breadcrumbs')
+    {!! Breadcrumbs::render('all_posts') !!}
+@stop
+
 @section('content')
 @can('create-post', Auth::user())
 	<a href="/posts/create" class="defbutton" name="create_post"><i class="fa fa-plus"></i>Create Article</a>
