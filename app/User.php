@@ -56,6 +56,12 @@ class User extends Authenticatable implements SluggableInterface
         return $this->hasMany(Post::class, 'author_id', 'id');
     }
     
+    public function forumposts()
+    {
+        return $this->hasMany(ForumPost::class, 'user_id', 'id');
+    }
+    
+
     public function comments()
     {
         return $this->hasMany(Comment::class, 'author_id', 'id');

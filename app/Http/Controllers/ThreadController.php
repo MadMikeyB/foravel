@@ -41,6 +41,7 @@ class ThreadController extends Controller
      */
     public function create(Forum $forum)
     {
+        $this->seo()->setTitle( 'Create Thread &mdash; ' . $this->seo()->getTitle() );
         return view('threads.create', compact('forum'));
     }
 
@@ -71,7 +72,7 @@ class ThreadController extends Controller
      */
     public function show(Forum $forum, Thread $thread)
     {
-        \SEO::setTitle($thread->title);
+        $this->seo()->setTitle( $thread->title . ' &mdash; ' . $this->seo()->getTitle() );
         return view('threads.show', compact('thread'));
     }
 

@@ -32,6 +32,7 @@ class ForumController extends Controller
      */
     public function index()
     {
+        $this->seo()->setTitle( 'Forums &mdash; ' . $this->seo()->getTitle() );
     	$forums = Forum::orderBy('position', 'ASC')->get();
         return view('forums.index', compact('forums'));
     }
@@ -43,6 +44,7 @@ class ForumController extends Controller
      */
     public function create()
     {
+        $this->seo()->setTitle( 'Create Forum &mdash; ' . $this->seo()->getTitle() );
         return view('forums.create');
     }
 
@@ -67,7 +69,7 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
-        \SEO::setTitle($forum->name);
+        $this->seo()->setTitle( $forum->name . ' &mdash; ' . $this->seo()->getTitle() );
         return view('forums.show', compact('forum'));
     }
 
