@@ -35,8 +35,10 @@
 			</a>
 			<div class="right">
 				<div class="forum-numbers">
+					@unless ( $forum->threads->isEmpty() )
 					<span>{{ $forum->threads->count() }} {{ str_plural('Thread', $forum->threads->count() ) }}</span>
 					<span>{{ $forum->threads->last()->posts->count() }} {{ str_plural('Reply', $forum->threads->last()->posts->count() ) }}</span>
+					@endunless
 				</div>
 				<div class="forum-recent">
 					<a href="/forums/{{$forum->slug }}" class="avatar online user-tooltip">
