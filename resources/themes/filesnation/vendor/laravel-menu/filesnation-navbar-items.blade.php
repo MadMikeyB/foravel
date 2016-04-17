@@ -1,6 +1,6 @@
 @foreach($items as $item)
   <li>
-    <a href="{!! $item->url() !!}"> @if ( $item->hasChildren() )<span class>@endif{!! $item->title !!}@if ( $item->hasChildren() )</span>@endif</a>
+    <a href="{!! $item->url() !!}"><span><i class="fa {!! $item->icon !!}"></i><strong>{!! $item->title !!}</strong></a>
     @if ( $item->hasChildren() )
       <ul class="sub-menu">
         @foreach ( $item->children() as $child )
@@ -17,9 +17,3 @@
     @endif
   </li>
 @endforeach
-
-<li>
-  <a href="blog.html">
-    <span><i class="fa fa-file"></i><strong>Blog Page</strong></span>
-  </a>
-</li>

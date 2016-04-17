@@ -29,6 +29,11 @@
 					</div>
 
 					<div class="form-group">
+						<label for="icon" class="control-label">URL</label>
+						<input type="icon" class="form-control input-lg" id="icon" name="icon" placeholder="Font Awesome Icon (eg, fa-home)">
+					</div>
+
+					<div class="form-group">
 						<label for="position" class="control-label">Position</label>
 						<input type="number" class="form-control input-lg" id="position" name="position" placeholder="Menu Position">
 					</div>

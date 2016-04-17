@@ -24,7 +24,7 @@ class MenuMiddleware
                 // If menu item is public, add it
                 if ( $item->group == '3' )
                 {
-                    $menu->add($item->title, $item->url);
+                    $menu->add($item->title, $item->url)->data('icon', $item->icon);
                 }
                 else
                 {
@@ -35,7 +35,7 @@ class MenuMiddleware
                         if ( Auth::user()->group <= $item->group )
                         {
                             // then add it to menu
-                            $menu->add($item->title, $item->url);
+                            $menu->add($item->title, $item->url)->data('icon', $item->icon);
                         }
                     }
                 }
