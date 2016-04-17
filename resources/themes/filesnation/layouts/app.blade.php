@@ -122,7 +122,9 @@
 					<div class="wrapper">
 						<div class="header-breadcrumbs">
 							<h2 class="right">{{ Setting::get('site_title', 'MPress 2.0') }}</h2>
-							@yield('breadcrumbs')
+							<ul>
+								@yield('breadcrumbs')
+							</ul>
 						</div>
 					</div>
 					
