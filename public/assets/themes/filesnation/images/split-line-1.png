@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<meta charset="utf-8" />
+		<title>FilesNation | Coming Soon! The new home of the greatest gaming-mod community in the world!</title>
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta property="og:type" content="company" />
+		<meta property="og:title" content="FilesNation | Coming Soon" />
+		<meta property="og:image" content="" />
+		<meta property="og:description" content="" />
+		<meta property="og:url" content="https://www.filesnation.com" />
+		<meta property="og:site_name" content="FilesNation | Coming Soon" />
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/dat-menu.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/main-stylesheet.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Oswald:300,400,700|Source+Sans+Pro:300,400,600,700&amp;subset=latin,latin-ext" />
+		<!--[if lt IE 9 ]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			/* Man content & sidebar top lne, default #256193 */
+			#sidebar .panel,
+			-box  {
+				border-top: 5px solid #256193;
+			}
+
+			/* Slider colors, default #256193 */
+			a.featured-select,
+			#slider-info .padding-box ul li:before,
+			.home-article.right ul li a:hover {
+				background-color: #256193;
+			}
+
+			/* Button color, default #256193 */
+			.panel-duel-voting .panel-duel-vote a {
+				background-color: #256193;
+			}
+
+			/* Menu background color, default #000 */
+			#menu-bottom.blurred #menu > .blur-before:after {
+				background-color: #000;
+			}
+
+			/* Top menu background, default #0D0D0D */
+			#header-top {
+				background: #0D0D0D;
+			}
+
+			/* Sidebar panel titles color, default #333333 */
+			#sidebar .panel > h2 {
+				color: #333333;
+			}
+
+			/* Main titles color, default #353535 */
+			 h2 span {
+				color: #353535;
+			}
+
+			/* Selection color, default #256193 */
+			::selection {
+				background: #256193;
+			}
+
+			/* Links hover color, default #256193 */
+			.article-icons a:hover,
+			a:hover {
+				color: #256193;
+			}
+
+			/* Image hover background, default #256193 */
+			.article-image-out,
+			.article-image {
+				background: #256193;
+			}
+
+			/* Image hover icons color, default #256193 */
+			span.article-image span .fa {
+				color: #256193;
+			}
+		</style>
+	</head>
+	<body class="no-slider">
+	<!-- <body class="has-top-menu"> -->
+		<!-- BEGIN #slider-imgs -->
+		<div id="slider-imgs">
+			<div class="featured-img-box">
+				<div id="featured-img-1" class="featured-img"></div>
+				<div id="featured-img-2" class="featured-img invisible"></div>
+				<div id="featured-img-3" class="featured-img invisible"></div>
+				<div id="featured-img-4" class="featured-img invisible"></div>
+			</div>
+		<!-- END #slider-imgs -->
+		</div>
+
+		<!-- BEGIN #top-layer -->
+		<div id="top-layer">
+			<div id="header-top">
+				<div class="wrapper">
+					<ul class="right">
+						<li><a href="https://www.facebook.com/FilesNation/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/FilesNation" target="_blank"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://www.youtube.com/user/FileTrekker" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+						<li><a href="https://www.twitch.tv/filesnation/" target="_blank"><i class="fa fa-twitch"></i></a></li>
+						<li><a href="http://steamcommunity.com/groups/FilesNation" target="_blank"><i class="fa fa-steam"></i></a></li>
+					</ul>
+					<ul class="load-responsive" rel="Top menu">
+					
+                    
+					</ul>
+				</div>
+			</div>
+			<section id="content">
+				<header id="header">
+					<div id="menu-bottom">
+						<!-- <nav id="menu" class="main-menu width-fluid"> -->
+						<nav id="menu" class="main-menu">
+							<div class="blur-before"></div>
+							<a href="index.html" class="header-logo left"><img src="images/logo.png" class="logo" alt="Revelio" title="" /></a>
+							<a href="#dat-menu" class="datmenu-prompt"><i class="fa fa-bars"></i>Show menu</a>
+							<ul class="load-responsive" rel="Main menu">
+							
+							</ul>
+						</nav>
+					</div>
+
+					<div class="wrapper">
+						<div class="header-breadcrumbs">
+							<h2 class="right">Coming Soon!</h2>
+							<ul>
+								<li><a href="#">Homepage</a></li>
+								<li>Coming Soon!</li>
+							</ul>
+						</div>
+					</div>
+					
+				</header>
+				<div id="main-box" class="full-width">
+					
+					<div id="main">
+
+						<div class="big-message">
+							<h3>404</h3>
+							<div>
+								<h4>Page Not Found</h4>
+							</div>
+							<p>You must be lost or we just have lost this<br>page You were looking for. Sorry about that.</p>
+						
+<br>
+<br>
+
+							<div class="msg-menu">
+								<a href="https://twitter.com/FilesNation">Twitter</a>
+								<a href="https://www.facebook.com/FilesNation/">Facebook</a>
+                                <a href="https://www.youtube.com/user/FileTrekker">YouTube</a>
+                                <a href="https://www.twitch.tv/filesnation/">Twitch</a>
+                                <a href="http://steamcommunity.com/groups/FilesNation">Steam</a>
+							</div>
+						</div>
+
+					</div>
+					
+					<div class="clear-float"></div>
+					
+				</div>
+			</div>
+		</div>
+			
+		<div class="clear-float"></div>
+		
+		<div class="wrapper">
+			<!-- BEGIN .footer -->
+			<div class="footer">
+
+		
+        
+        
+                
+				<div class="footer-bottom">
+					<div class="left">&copy; Copyright 2016 <strong>FilesNation</strong></div>
+					<div class="right">
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+						</ul>
+					</div>
+					<div class="clear-float"></div>
+				</div>
+				
+			<!-- END .footer -->
+			</div>
+		</div>
+		<script type='text/javascript' src='jscript/jquery-1.11.2.min.js'></script>
+		<script type='text/javascript' src='jscript/modernizr.custom.50878.js'></script>
+		<script type='text/javascript' src='jscript/iscroll.js'></script>
+		<script type='text/javascript' src='jscript/dat-menu.js'></script>
+		<script type='text/javascript'>
+			var strike_autostart = false;
+		</script>
+		<script type='text/javascript' src='jscript/theme-script.js'></script>
+	</body>
+</html>

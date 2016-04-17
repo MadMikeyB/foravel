@@ -89,6 +89,18 @@
 						<input type="text" name="social_github" id="social_github" class="form-control input-lg" placeholder="{{ Setting::get('social_github', 'github') }}" value="{{ Setting::get('social_github') }}">
 					</div>
 					<div class="form-group">
+						<label for="">Twitch</label>
+						<input type="text" name="social_twitch" id="social_twitch" class="form-control input-lg" placeholder="{{ Setting::get('social_twitch', 'twitch') }}" value="{{ Setting::get('social_twitch') }}">
+					</div>
+					<div class="form-group">
+						<label for="">YouTube</label>
+						<input type="text" name="social_youtube" id="social_youtube" class="form-control input-lg" placeholder="{{ Setting::get('social_youtube', 'youtube') }}" value="{{ Setting::get('social_youtube') }}">
+					</div>
+					<div class="form-group">
+						<label for="">Steam</label>
+						<input type="text" name="social_steam" id="social_steam" class="form-control input-lg" placeholder="{{ Setting::get('social_steam', 'steam') }}" value="{{ Setting::get('social_steam') }}">
+					</div>
+					<div class="form-group">
 						<label for="">Contact Email Address</label>
 						<input type="text" name="social_email" id="social_email" class="form-control input-lg" placeholder="{{ Setting::get('social_email', 'email@address.com') }}" value="{{ Setting::get('social_email') }}">
 					</div>

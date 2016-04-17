@@ -71,6 +71,7 @@ class ThreadController extends Controller
      */
     public function show(Forum $forum, Thread $thread)
     {
+        \SEO::setTitle($thread->title);
         return view('threads.show', compact('thread'));
     }
 

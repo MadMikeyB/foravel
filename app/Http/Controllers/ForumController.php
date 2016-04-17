@@ -67,6 +67,7 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
+        \SEO::setTitle($forum->name);
         return view('forums.show', compact('forum'));
     }
 
