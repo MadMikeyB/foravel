@@ -7,7 +7,7 @@ use DB;
 
 class Menu extends Model
 {
-	protected $fillable = ['title', 'url', 'position', 'group'];
+	protected $fillable = ['title', 'url', 'position', 'group', 'icon'];
 	
 	public static function generateMenu()
 	{

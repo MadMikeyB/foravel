@@ -1,3 +1,6 @@
+@inject('comments', 'App\Comment')
+@inject('posts', 'App\Post')
+
 <!DOCTYPE HTML>
 <html lang = "en">
 	<head>
