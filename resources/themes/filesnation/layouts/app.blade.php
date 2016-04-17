@@ -179,5 +179,6 @@
 			var strike_autostart = false;
 		</script>
 		<script type='text/javascript' src="{{ Theme::asset('jscript/theme-script.js', null, true) }}"></script>
+		@yield('scripts')
 	</body>
 </html>

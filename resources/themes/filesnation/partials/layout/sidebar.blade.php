@@ -19,7 +19,7 @@
 			<div class="top-right"><a href="/posts">View all</a></div>
 			<div class="panel-content">
 				<div class="d-articles">
-					@foreach ( $posts->orderBy('id', 'DESC')->paginate('5') as $post )
+					@foreach ( $posts->orderBy('views', 'DESC')->paginate('5') as $post )
 					<div class="item">
 						<div class="item-header">
 						@unless ( $post->images->isEmpty() )

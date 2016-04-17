@@ -1,10 +1,12 @@
 @extends('layouts.app') @section('content')
-	<h2><span>{{ $post->title }}</span></h2>
+	{{-- <h2><span>{{ $post->title }}</span></h2> --}}
 	<div class="article-full">
 		<div class="article-main-photo">
-			@if ( $post->image ) <img alt=
-			"{{ $post->title }} &mdash; {{ Setting::get('site_title', 'MPress') }}"
-			src="{{$post->image}}"> @endif
+			@unless ( $post->images->isEmpty() )
+				@foreach ( $post->images as $image )
+					<img alt="Featured Image for {{ $post->title }}" title="{{ $post->title }}" src="/{{ $image->image_path }}"> 
+				@endforeach
+			@endunless
 		</div>
 		<div class="article-icons">
 			<a class="user-tooltip" href=
@@ -71,6 +73,24 @@
 			@endcan
 		</div><!-- END .content-padding -->
 	</div>
+
+	@can( 'edit-post', $post)
+	@if ( $post->images->isEmpty() )
+		<div class="box">
+			<div class="12u">
+				<h2>Hey! You can add images to this post!</h2>
+				<form class="dropzone" action="/posts/{{$post->slug}}/images">
+					{{ csrf_field() }}
+					<div class="fallback">
+						<input name="image" type="file" multiple />
+						<input name="submit" type="submit" value="Submit" multiple />
+					</div>
+				</form>
+			</div>
+		</div>
+	@endif
+@endcan
+
 @stop 
 
 @section('scripts')
