@@ -33,7 +33,12 @@ class PagesController extends Controller
 
         Event::fire(new PageWasViewed($page));
 
-        $page->content = Markdown::convertToHtml($page->content);
+        if ( $page->type != 'html' )
+        {
+            $page->content = Markdown::convertToHtml($page->content);
+        }
+        
         return view('pages.show', compact('page'));
+
     }
 }

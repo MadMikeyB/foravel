@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_alt')
 
 @section('breadcrumbs')
 {!! Breadcrumbs::render('forum') !!}
@@ -46,7 +46,7 @@
 					<span>
 						<a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}">{{ $forum->threads->last()->title }}.</a>
 						<span class="f-date">{{ $forum->updated_at->diffForHumans() }}</span>
-						<span class="f-user-link"><a href="user-single.html"><strong>{{ $forum->threads->last()->user->name }}</strong></a></span>
+						<span class="f-user-link"><a href="/&#64;{{ $forum->threads->last()->user->slug }}"><strong>{{ $forum->threads->last()->user->name }}</strong></a></span>
 					</span>
 				</div>
 			</div>

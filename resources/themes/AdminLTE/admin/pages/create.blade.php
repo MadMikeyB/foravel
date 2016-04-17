@@ -27,6 +27,14 @@
 						</div>
 						
 						<div class="col-md-2">
+							<div class="form-group">
+								<label for="type" class="control-label">Page Type</label>
+								<select class="form-control" name="type">
+									<option value="markdown" selected>Markdown Page (default, use editor)</option>
+									<option value="blade" disabled>Blade Page</option>
+									<option value="html">HTML Page</option>
+								</select>
+							</div>
 							<h3>Page Templates</h3>
 								<p><strong>You can use <a href="https://laravel.com/docs/master/blade">Blade</a><sup><a href="http://cheats.jesse-obrien.ca/#blade">(?)</a></sup>, <a href="http://www.w3schools.com/html/">HTML</a> and <a href="https://daringfireball.net/projects/markdown/">Markdown</a><sup><a href="http://assemble.io/docs/Cheatsheet-Markdown.html">(?)</a></sup> in Pages</strong></p>
 								<p><code>@header</code> will show the site header - including Navigation</p>
@@ -49,6 +57,7 @@
 <script>
 	jQuery('#toggle-editor').click( function() {
 		$('.wysihtml5-toolbar').toggle();
+		$('textarea').toggleClass('mp-editor');
 		$('#toggle-editor').css("margin-bottom", "10px");
 	});
 </script>

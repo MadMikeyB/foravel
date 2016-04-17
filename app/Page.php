@@ -12,7 +12,7 @@ class Page extends Model implements SluggableInterface
     use SoftDeletes;
     use SluggableTrait;
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'type'];
     protected $dates = ['deleted_at'];
 
 

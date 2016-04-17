@@ -177,7 +177,7 @@ class AdminController extends Controller
     public function storePage(Request $request)
     {        
         $this->validator($request);
-
+        dd($request->all());
         $page = new Page($request->all());
         $page->author_id = $request->user()->id;
 

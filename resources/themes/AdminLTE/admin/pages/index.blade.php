@@ -36,7 +36,11 @@
 						<tr>
 							<td>{{ $page->title }}</td>
 							<td>{{ $page->user->name }}</td>
+							@if ( $page->type == 'markdown')
 							<td>{!! Markdown::convertToHtml(str_limit(strip_tags($page->content), 140)) !!}</td>
+							@else
+							<td><pre>HTML Page. To view, hit Edit.</pre></td>
+							@endif
 							<td><a href="/{{ $page->slug }}" class="btn btn-success"><i class="fa fa-eye"></i></td>
 							<td><a href="/pages/{{ $page->slug }}/edit" class="btn btn-info"><i class="fa fa-pencil"></i></td>
 							<td><a href="/pages/{{ $page->slug }}/delete" class="btn btn-danger"><i class="fa fa-trash"></i></td>
