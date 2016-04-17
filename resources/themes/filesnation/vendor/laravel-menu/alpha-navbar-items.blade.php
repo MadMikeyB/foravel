@@ -17,9 +17,3 @@
     @endif
   </li>
 @endforeach
-
-<li>
-  <a href="blog.html">
-    <span><i class="fa fa-file"></i><strong>Blog Page</strong></span>
-  </a>
-</li>

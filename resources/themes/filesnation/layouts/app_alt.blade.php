@@ -110,7 +110,7 @@
 							<a href="{{ route('home') }}" class="header-logo left"><img src="{{ Theme::asset('images/logo.png', null, true) }}" class="logo" alt="Revelio" title="" /></a>
 							<a href="#dat-menu" class="datmenu-prompt"><i class="fa fa-bars"></i>Show menu</a>
 							<ul class="load-responsive" rel="Main menu">
-								@include('vendor.laravel-menu.alpha-navbar-items', array('items' => $MainNavigation->roots()))
+								@include('vendor.laravel-menu.filesnation-navbar-items', array('items' => $MainNavigation->roots()))
 							</ul>
 						</nav>
 					</div>
