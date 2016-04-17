@@ -20,6 +20,14 @@ Breadcrumbs::register('show_forum', function($breadcrumbs, $forum)
     $breadcrumbs->push($forum->name, route('show_forum', $forum->slug));
 });
 
+// Home > Forums > [Forum] > Create Thread
+Breadcrumbs::register('create_thread', function($breadcrumbs, $forum)
+{
+    $breadcrumbs->parent('forum');
+    $breadcrumbs->push($forum->name, route('show_forum', $forum->slug));
+    $breadcrumbs->push('Create Thread');
+});
+
 // Home > Forums > [Forum] > [Thread]
 Breadcrumbs::register('show_thread', function($breadcrumbs, $thread)
 {
