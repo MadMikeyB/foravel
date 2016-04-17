@@ -70,6 +70,7 @@
 	@endforeach
 	@endunless
 </div>
+@if ( Auth::user() )
 <div class="content-padding quick-reply" id="quick-reply">
 	<div class="forum-description">
 		<a href="#quick-reply" class="newdefbutton"><i class="fa fa-comment-o"></i>Quick reply</a>
@@ -108,4 +109,5 @@
 		</div>
 	</div>
 </div>
+@endif
 @stop
