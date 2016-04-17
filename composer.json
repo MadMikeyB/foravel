@@ -19,7 +19,8 @@
         "artesaos/seotools": "^0.9.0",
         "rachidlaasri/laravel-installer": "^1.4",
         "golonka/bbcodeparser": "^2.2",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0"
+        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "laravel/socialite": "^2.0"
 
     },
     "require-dev": {

@@ -169,7 +169,7 @@ return [
         RachidLaasri\LaravelInstaller\Providers\LaravelInstallerServiceProvider::class, // Installer!
         Golonka\BBCode\BBCodeParserServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
-
+        Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -227,8 +227,7 @@ return [
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         'BBCode' => Golonka\BBCode\Facades\BBCodeParser::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-
-
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

@@ -68,18 +68,12 @@ Route::group(['middleware' => ['web', 'menu']], function () {
     	});
         
         Route::get('dashboard', 'DashboardController@index');
-        Route::get('sendemail', function()
-        {
-            Mail::raw('Laravel with Mailgun is easy!', function($message)
-            {
-                $message->to('me@mikeylicio.us')->subject('Hiya!');
-            });
-
-            return "Mail sent";
-        });
 	
     // Auth
         Route::auth();
+    // Social Auth
+        Route::get('social/{provider?}', 'Auth\AuthController@redirectToProvider');
+        Route::get('social/{provider?}/callback', 'Auth\AuthController@handleProviderCallback');
 
     // Posts 
         Route::get('posts', ['as' => 'all_posts', 'uses' => 'PostsController@index']);

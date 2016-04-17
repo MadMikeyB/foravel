@@ -35,4 +35,21 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+
+    'facebook' => [
+        'client_id'     => getenv('FACEBOOK_CLIENT_ID'),
+        'client_secret' => getenv('FACEBOOK_CLIENT_SECRET'),
+        'redirect'      => 'http://filesnation.dev/social/facebook/callback',
+    ],
+    'twitter' => [
+        'client_id'     => getenv('TWITTER_CLIENT_ID'),
+        'client_secret' => getenv('TWITTER_CLIENT_SECRET'),
+        'redirect'      => 'http://filesnation.dev/social/twitter/callback',
+    ],
+    'google' => [
+        'client_id'     => getenv('GOOGLE_CLIENT_ID'),
+        'client_secret' => getenv('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => 'http://filesnation.dev/social/google/callback',
+    ],
+
 ];

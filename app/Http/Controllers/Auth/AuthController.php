@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Socialite;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -28,7 +30,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -70,5 +72,47 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Redirect the user to the Social Network authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from Social Network.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->user();
+        // can we validate this before we even get to the user model?!
+        // $this->validate($request, []);
+
+        if ($user) {
+            // Twitter does not provide an email address, and you have to be whitelisted by Twitter to obtain it.
+            // Temp Fix @todo - be whitelisted by Twitter
+            if ($provider !== 'twitter') {
+                $u = User::firstOrCreate([
+                        'username'  => $user->getName(),
+                        'email'     => $user->getEmail(),
+                    ]);
+            } else {
+                $u = User::firstOrCreate([
+                        'username'  => $user->getName(),
+                        'email'     => $user->getNickName().'@twitter.com', // temp fix
+                    ]);
+            }
+
+            Auth::login($u, true);
+
+            return redirect('/');
+        }
     }
 }

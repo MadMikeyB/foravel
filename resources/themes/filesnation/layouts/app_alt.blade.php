@@ -128,17 +128,11 @@
 
 				<div id="main-box" class="full-width">
 					<div id="main">
-						
 						<h2><span>{{ SEO::getTitle() }}</span></h2>
-
-
-						<div class="content-padding">
 							@yield('hero')
 							@include('partials.layout.flashmessage')
 				    		@include('partials.layout.errors')
-							@yield('content')
-						</div>
-						
+							@yield('content')						
 					</div>									
 					<div class="clear-float"></div>
 					
