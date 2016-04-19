@@ -12,7 +12,7 @@ class ForumPost extends Model
 
 	protected $fillable = ['content'];
 
-    public function getContentAttribute($content)
+    public function getContentAttribute( $content )
     {
         return BBCode::parse($content); 
     }   

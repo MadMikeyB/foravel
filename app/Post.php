@@ -23,13 +23,13 @@ class Post extends Model implements SluggableInterface
     ];
 
     // Handle our Markdown Conversion directly in the Model
-    public function getContentAttribute($content)
+    public function getContentAttribute( $content )
     {
         return Markdown::convertToHtml($content); 
     }   
 
     // Add an Image
-    public function addImage(Image $image)
+    public function addImage( Image $image )
     {
         return $this->images()->save($image);
     }

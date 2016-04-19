@@ -22,7 +22,7 @@ class Image extends Model
     	return $this->belongsTo(Post::class, 'id', 'post_id');
     }
 
-    public static function fromForm(UploadedFile $file, Request $request)
+    public static function fromForm( UploadedFile $file, Request $request )
     {
     	$image = new static;
 
