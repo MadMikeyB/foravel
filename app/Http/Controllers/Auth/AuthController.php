@@ -9,6 +9,7 @@ use App\Events\UserRegistered;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
 use Socialite;
 use Validator;
 use Event;

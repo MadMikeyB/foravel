@@ -26,6 +26,10 @@ class UserRegisteredListener
      */
     public function handle(UserRegistered $event)
     {
+        // Send a welcome email / PM / whatever
+
+        // Do something else here.. set a flag to prompt for info.. etc.
+
         // create user XP row
         $event->user->xp()->create([]);
         // Give user XP for registering
