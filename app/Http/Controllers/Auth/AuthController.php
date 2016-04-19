@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Events\UserRegistered;
+
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Socialite;
 use Validator;
+use Event;
 
 class AuthController extends Controller
 {
@@ -66,12 +69,17 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'nickname' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+
+        $user = User::create([
+                        'name'      => $data['name'],
+                        'nickname'  => $data['name'],
+                        'email'     => $data['email'],
+                        'password'  => bcrypt($data['password']),
+                    ]);
+
+        Event::fire(new UserRegistered($user));
+        
+        return $user;
     }
 
     /**

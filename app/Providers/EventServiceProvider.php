@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PageWasViewed' => [
             'App\Listeners\PageWasViewedListener',
         ],
+        'App\Events\UserRegistered' => [
+            'App\Listeners\UserRegisteredListener',
+        ],
     ];
 
     /**
