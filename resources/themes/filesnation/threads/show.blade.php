@@ -33,7 +33,7 @@
 						<a href="/&#64;{{ $post->user->slug }}" class="forum-user user-tooltip"><b>{{ $post->user->name }}</b></a>
 					</div>
 					<div>
-						<span>Reputation: <strong class="rating-good">+9000</strong></span>
+						<span>XP: <strong class="rating-good">+{{ $post->user->xp->points }}</strong></span>
 					</div>
 					<div>
 						<span><strong>{{ $post->user->count() }}</strong> posts</span>

@@ -100,7 +100,7 @@ class PostsController extends Controller
 
         $post->save();
 
-        Event::fire(new PostCreated($post));
+        Event::fire(new PostCreated(Auth::user(), $post));
 
 
         session()->flash('flash_message', 'Yay! Something to read!');

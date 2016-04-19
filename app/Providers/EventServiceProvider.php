@@ -25,6 +25,18 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Auth\Events\Login' => [
             'App\Listeners\UserLoggedInListener@handle',
         ],
+        'App\Events\ThreadCreated' => [
+            'App\Listeners\ThreadCreatedListener',
+        ],
+        'App\Events\ForumPostCreated' => [
+            'App\Listeners\ForumPostCreatedListener',
+        ],
+        'App\Events\PostCreated' => [
+            'App\Listeners\PostCreatedListener',
+        ],
+        'App\Events\CommentCreated' => [
+            'App\Listeners\CommentCreatedListener',
+        ],
     ];
 
     /**

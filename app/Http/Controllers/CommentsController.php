@@ -12,6 +12,8 @@ use App\Comment;
 use App\Post;
 use Gate;
 use Mail;
+use Event;
+
 
 class CommentsController extends Controller
 {
@@ -47,7 +49,7 @@ class CommentsController extends Controller
 
         });
 
-        Event::fire(new CommentCreated($comment));
+        Event::fire(new CommentCreated(Auth::user(), $comment));
 
         session()->flash('flash_message', 'Thank you for reading!');
 

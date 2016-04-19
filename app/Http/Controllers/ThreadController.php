@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\ForumPostCreated;
 use App\Events\ThreadCreated;
 
 use App\Http\Requests;
@@ -11,6 +12,8 @@ use App\Forum;
 use App\Thread;
 use App\ForumPost;
 use Auth;
+use Event;
+
 
 class ThreadController extends Controller
 {
@@ -58,14 +61,14 @@ class ThreadController extends Controller
         $thread->user_id = Auth::user()->id;
         $thread->save();
 
-        Event::fire(new ThreadCreated($thread));
+        Event::fire(new ThreadCreated(Auth::user(), $thread));
 
         $post = $thread->posts()->create( ['content' => $request->content ] );
         $post->user_id = Auth::user()->id;
         $post->save();
         
-        Event::fire(new ForumPostCreated($post));
-        
+        Event::fire(new ForumPostCreated(Auth::user(), $post));
+
         return redirect('/forums/' . $thread->forum->slug . '/' . $thread->slug );
     }
 

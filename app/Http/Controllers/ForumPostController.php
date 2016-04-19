@@ -12,6 +12,8 @@ use App\Forum;
 use App\Thread;
 use App\ForumPost;
 use Auth;
+use Event;
+
 
 class ForumPostController extends Controller
 {
@@ -58,7 +60,7 @@ class ForumPostController extends Controller
         $post->user_id = Auth::user()->id;
         $post->save();
 
-        Event::fire(new ForumPostCreated($post));
+        Event::fire(new ForumPostCreated(Auth::user(), $post));
         
         return back();
     }
