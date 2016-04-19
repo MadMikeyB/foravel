@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\ThreadCreated;
 
 use App\Http\Requests;
 
@@ -57,10 +58,14 @@ class ThreadController extends Controller
         $thread->user_id = Auth::user()->id;
         $thread->save();
 
+        Event::fire(new ThreadCreated($thread));
+
         $post = $thread->posts()->create( ['content' => $request->content ] );
         $post->user_id = Auth::user()->id;
         $post->save();
-                
+        
+        Event::fire(new ForumPostCreated($post));
+        
         return redirect('/forums/' . $thread->forum->slug . '/' . $thread->slug );
     }
 

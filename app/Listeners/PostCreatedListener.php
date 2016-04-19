@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\UserRegistered;
+use App\Events\PostCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UserRegisteredListener
+class PostCreatedListener
 {
     /**
      * Create the event listener.
@@ -21,18 +21,11 @@ class UserRegisteredListener
     /**
      * Handle the event.
      *
-     * @param  UserRegistered  $event
+     * @param  PostCreated  $event
      * @return void
      */
-    public function handle(UserRegistered $event)
+    public function handle(PostCreated $event)
     {
-        // Send a welcome email / PM / whatever
-
-        // Do something else here.. set a flag to prompt for info.. etc.
-
-        // create user XP row
-        $event->user->xp()->create([]);
-        // Give user XP for registering
         $event->user->xp()->increment('points', 50);
     }
 }

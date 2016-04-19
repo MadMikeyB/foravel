@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\CommentCreated;
+
 
 use App\Http\Requests;
 
@@ -44,6 +46,8 @@ class CommentsController extends Controller
             $message->to( $post->user->email )->subject('New comment on ' . $post->title);
 
         });
+
+        Event::fire(new CommentCreated($comment));
 
         session()->flash('flash_message', 'Thank you for reading!');
 

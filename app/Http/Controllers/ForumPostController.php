@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Events\ForumPostCreated;
+
 
 use App\Http\Requests;
 
@@ -55,6 +57,8 @@ class ForumPostController extends Controller
         $post = $thread->posts()->create( $request->all() );
         $post->user_id = Auth::user()->id;
         $post->save();
+
+        Event::fire(new ForumPostCreated($post));
         
         return back();
     }

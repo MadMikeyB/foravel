@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Events\PostCreated;
 
 use GrahamCampbell\Markdown\Facades\Markdown;
 
@@ -98,6 +99,9 @@ class PostsController extends Controller
         }
 
         $post->save();
+
+        Event::fire(new PostCreated($post));
+
 
         session()->flash('flash_message', 'Yay! Something to read!');
 
