@@ -13,7 +13,7 @@ use App\Events\PostWasViewed;
 use App\Image;
 use Event;
 use Gate;
-
+use Auth;
 
 class PostsController extends Controller
 {

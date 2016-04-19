@@ -13,7 +13,7 @@ use App\Post;
 use Gate;
 use Mail;
 use Event;
-
+use Auth;
 
 class CommentsController extends Controller
 {
