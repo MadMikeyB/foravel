@@ -65,8 +65,8 @@
 <div class="game-info-right">
 	<div class="game-menu" style="border-bottom: 5px solid #921913;">
 		<div class="game-overlay-info">
-			<h1>{{ $user->name }}</h1>
-			<span>Last Active {{ $user->updated_at->diffForHumans() }}</span>
+			<h1>{{ $user->name }} </h1>
+			<span><i class="fa fa-star"></i> {{ $user->xp->points }} XP &middot; Last Active {{ $user->updated_at->diffForHumans() }}</span>
 		</div>
 		{{-- Tabs --}}
 		<ul>
