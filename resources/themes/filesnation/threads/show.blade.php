@@ -44,7 +44,7 @@
 			<div class="post-text-block">
 				{!! $post->content !!}
 				<div class="post-signature">
-					<p>{{ $post->user->fields->signature }}</p>
+					<p>Sigs coming soon.{{-- $post->user->fields->signature --}}</p>
 				</div>
 			</div>
 			<div class="post-meta-block">
