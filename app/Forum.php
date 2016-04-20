@@ -30,6 +30,6 @@ class Forum extends Model implements SluggableInterface
     // hasMany Thread
     public function threads()
     {
-    	return $this->hasMany('App\Thread');
+    	return $this->hasMany('App\Thread')->orderBy('id', 'asc');
     }
 }
