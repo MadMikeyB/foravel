@@ -28,12 +28,19 @@
 			@foreach ( $forum->threads as $thread )
 
 			<!-- BEGIN .thread-link -->
-			<div class="thread-link">
+			<div class="thread-link 
+			@if ( $thread->status == 'pinned')thread-unread thread-sticky @endif 
+			@if ( $thread->status == 'locked')thread-locked @endif">
 				<a href="/forums/{{ $forum->slug }}/{{ $thread->slug }}">
 					<i class="forum-icon">
 						<i class="fa fa-comments"></i>
 					</i>
-					<span>{{ $thread->title }}</span>
+					<span>
+						@if ( $thread->status == 'pinned')<i class="sticky">Pinned</i>@endif
+						@if ( $thread->status == 'locked')<i class="thr-closed">Locked</i>@endif
+						{{ $thread->title }}
+						@if ( $thread->status == 'locked')<i class="fa fa-lock"></i>@endif
+					</span>
 				</a>
 				<div class="thread-author">
 					<span class="f-user-link"><a href="/&#64;{{ $thread->user->slug }}"><strong>{{ $thread->user->name }}</strong></a></span>
