@@ -36,7 +36,7 @@
 						<span>XP: <strong class="rating-good">+{{ $post->user->xp->points }}</strong></span>
 					</div>
 					<div>
-						<span><strong>{{ $post->user->count() }}</strong> posts</span>
+						<span><strong>{{ $post->user->forumposts->count() }}</strong> posts</span>
 					</div>
 				</div>
 				<div class="clear-float"></div>
@@ -44,7 +44,7 @@
 			<div class="post-text-block">
 				{!! $post->content !!}
 				<div class="post-signature">
-					<p>Small signature</p>
+					<p>{{ $post->user->fields->signature }}</p>
 				</div>
 			</div>
 			<div class="post-meta-block">
@@ -56,7 +56,7 @@
 				</div>
 				<div>
 					<a href="#" class="strike-tooltip" title="Positive"><i class="fa fa-thumbs-up rating-good"></i></a>
-					<span class="the-rate rating-good">101</span>
+					<span class="the-rate rating-good">{{ $post->user->xp->points }}</span>
 					<a href="#" class="strike-tooltip" title="Negative"><i class="fa fa-thumbs-down rating-bad"></i></a>
 				</div>
 				<div class="bottom">

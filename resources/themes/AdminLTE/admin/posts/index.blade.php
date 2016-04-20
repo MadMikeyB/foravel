@@ -41,7 +41,7 @@
 							@if ( $post->trashed() )
 							<td><span class="label label-danger">Deleted</span></td>
 							@elseif ( $post->status == 'publish')
-							<td><span class="label label-success">{{ ucfirst($post->status) }}</span></td>
+							<td><span class="label label-success">Published</span></td>
 							@else
 							<td><span class="label label-primary">{{ ucfirst($post->status) }}</span></td>
 							@endif
