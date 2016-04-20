@@ -12,10 +12,11 @@ class HomeController extends Controller
 {
 	public function index()
     {
-    	$post = Post::orderBy('id', 'DESC')->take('1')->first();
+    	$post = Post::orderBy('id', 'DESC')->where('status', 'publish')->take('1')->first();
     	if ( $post )
     	{
-    		$posts = Post::where('id', '!=', $post->id)->orderBy('id', 'DESC')->take('6')->get();
+            $posts = Post::where('id', '!=', $post->id)->where('status', 'publish')->orderBy('id', 'DESC')->take('6')->get();
+
         	return view('welcome', compact(['post', 'posts']));
         }
         else
