@@ -46,6 +46,7 @@
 		<h2>Latest Comments</h2>
 		<div class="panel-content no-padding">
 			@foreach ( $comments->orderBy('id', 'DESC')->paginate('5') as $comment )
+			@if ( $comment->post->status == 'publish')
 			<div class="new-forum-line">
 				<a href="/&#64;{{ $comment->user->slug }}" class="avatar online user-tooltip">
 					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $comment->user->email ) ) ) }}?s=39" class="setborder" title="" alt="" />
@@ -56,6 +57,7 @@
 					<span><b class="user-tooltip">{{ $comment->user->name }}</b>, {{ $comment->created_at->diffForHumans() }}</span>
 				</a>
 			</div>
+			@endif
 			@endforeach
 		</div>
 	</div>
