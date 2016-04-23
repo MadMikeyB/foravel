@@ -63,7 +63,7 @@
 							<th>Title</th>
 							<th>URL</th>
 							<th>Who can see this?</th>
-							<th></th>
+							<th>Icon</th>
 							<th></th>
 							<th></th>
 						</tr>
@@ -80,7 +80,7 @@
 									@elseif ( $m->group == '3')
 									<td>Everyone</td>
 									@endif
-									<td></td>
+									<td><i class="fa {{ $m->icon }} fa-2x"></i></td>
 									<td><a href="/admin/menus/edit/{{ $m->id }}" class="btn btn-primary btn-block"><i class="fa fa-pencil"></i></a></td>
 									<td><a href="/admin/menus/delete/{{ $m->id }}" class="btn btn-danger btn-block"><i class="fa fa-trash"></i></a></td>
 								</tr>

@@ -14,6 +14,7 @@ use App\Image;
 use Event;
 use Gate;
 use Auth;
+use Alert;
 
 class PostsController extends Controller
 {
@@ -103,7 +104,7 @@ class PostsController extends Controller
         Event::fire(new PostCreated(Auth::user(), $post));
 
 
-        session()->flash('flash_message', 'Yay! Something to read!');
+        Alert::success('Yay! Something to read!');
 
         return redirect('/read/' . $post->slug );
     }
@@ -125,7 +126,7 @@ class PostsController extends Controller
         $this->seo()->setTitle( 'Edit Post '. $post->title.' &mdash; ' . $this->seo()->getTitle() );
 
         if ( Gate::denies('edit-post', $post) ) {
-            session()->flash('flash_message', 'You are not authorized to do that!');
+            Alert::error('You are not authorized to do that!');
             return redirect('/read/' . $post->slug );
         }
 
@@ -144,12 +145,12 @@ class PostsController extends Controller
         $this->validator($request);
 
         if ( Gate::denies('update-post', $post) ) {
-            session()->flash('flash_message', 'You are not authorized to do that!');
+            Alert::error('You are not authorized to do that!');
             return redirect('/read/' . $post->slug );
         }
 
         $post->update($request->all());
-        session()->flash('flash_message', 'Did you just fix a typo?');
+        Alert::success('Did you just fix a typo?');
 
         return redirect('/read/' . $post->slug );
 
@@ -164,7 +165,7 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         if ( Gate::denies('delete-post', $post) ) {
-            session()->flash('flash_message', 'You are not authorized to do that!');
+            Alert::error('You are not authorized to do that!');
             return back();
         }
         
@@ -173,7 +174,7 @@ class PostsController extends Controller
         
         $post->delete();
 
-        session()->flash('flash_message', 'Post Deleted.');
+        Alert::success('Post Deleted.');
 
         return redirect('/posts');
     }

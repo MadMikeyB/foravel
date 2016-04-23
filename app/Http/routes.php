@@ -28,9 +28,11 @@ Route::group(['middleware' => ['web', 'auth', 'menu', 'admin']], function() {
 
     Route::get('admin/tools', 'AdminController@tools');
     Route::get('admin/menus', 'AdminController@menus');
+    Route::get('admin/menus/edit/{menu}', 'AdminController@editMenu');
 
     Route::post('admin/menus', 'AdminController@storeMenu');
-    
+    Route::patch('admin/menus/edit/{menu}', 'AdminController@updateMenu');
+
     Route::get('posts/create', ['as' => 'create_post', 'uses' => 'PostsController@create']);
     Route::post('posts', 'PostsController@store');
 

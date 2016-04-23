@@ -170,6 +170,7 @@ return [
         Golonka\BBCode\BBCodeParserServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
     ],
 
     /*
@@ -220,14 +221,15 @@ return [
          * Custom Facades...
          */
                 
-        'Markdown'  => GrahamCampbell\Markdown\Facades\Markdown::class, // MarkDown
-        'Setting'   => App\Setting::class,
-        'Menu'      => Lavary\Menu\Facade::class, // Menu
-        'Theme'     => YAAP\Theme\Facades\Theme::class, // Theme
-        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
-        'BBCode' => Golonka\BBCode\Facades\BBCodeParser::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Markdown'      => GrahamCampbell\Markdown\Facades\Markdown::class, // MarkDown
+        'Setting'       => App\Setting::class,
+        'Menu'          => Lavary\Menu\Facade::class, // Menu
+        'Theme'         => YAAP\Theme\Facades\Theme::class, // Theme
+        'SEO'           => Artesaos\SEOTools\Facades\SEOTools::class,
+        'BBCode'        => Golonka\BBCode\Facades\BBCodeParser::class,
+        'Breadcrumbs'   => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Socialite'     => Laravel\Socialite\Facades\Socialite::class,
+        'Alert'         => UxWeb\SweetAlert\SweetAlert::class,
     ],
 
 ];

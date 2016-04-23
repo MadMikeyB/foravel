@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="{{ Theme::asset('css/dat-menu.css', null, true) }}" media="screen" />
 		<link rel="stylesheet" type="text/css" href="{{ Theme::asset('css/main-stylesheet.css', null, true) }}" media="screen" />
 		<link rel="stylesheet" type="text/css" href="{{ Theme::asset('css/responsive.css', null, true) }}" media="screen" />
+		<link rel="stylesheet" type="text/css" href="{{ Theme::asset('css/sweetalert.css', null, true) }}" media="screen" />
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Oswald:300,400,700|Source+Sans+Pro:300,400,600,700&amp;subset=latin,latin-ext" />
 		<!--[if lt IE 9 ]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -180,6 +181,8 @@
 			var strike_autostart = false;
 		</script>
 		<script type='text/javascript' src="{{ Theme::asset('jscript/theme-script.js', null, true) }}"></script>
+		<script type='text/javascript' src="{{ Theme::asset('jscript/sweetalert.min.js', null, true) }}"></script>
+		@include('sweet::alert')
 		@yield('scripts')
 	</body>
 </html>

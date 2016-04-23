@@ -14,6 +14,7 @@ use Gate;
 use Mail;
 use Event;
 use Auth;
+use Alert;
 
 class CommentsController extends Controller
 {
@@ -51,7 +52,7 @@ class CommentsController extends Controller
 
         Event::fire(new CommentCreated(Auth::user(), $comment));
 
-        session()->flash('flash_message', 'Thank you for reading!');
+        Alert::success('Thank you for reading!');
 
         return redirect('/read/' . $post->slug );
     }
@@ -65,7 +66,7 @@ class CommentsController extends Controller
     public function edit(Comment $comment)
     {
         if ( Gate::denies('edit-comment', $comment) ) {
-            session()->flash('flash_message', 'You are not authorized to do that!');
+            Alert::error('You are not authorized to do that!');
             return redirect('/read/' . $comment->post->slug );
         }
 
@@ -83,7 +84,7 @@ class CommentsController extends Controller
         $this->validator($request);
 
         if ( Gate::denies('update-comment', $comment) ) {
-            session()->flash('flash_message', 'You are not authorized to do that!');
+            Alert::success('You are not authorized to do that!');
             return redirect('/read/' . $comment->post->slug );
         }
 
@@ -106,7 +107,7 @@ class CommentsController extends Controller
         
         $comment->delete();
 
-        session()->flash('flash_message', 'Comment Deleted');
+        Alert::success('Comment Deleted');
 
         return back();
     }

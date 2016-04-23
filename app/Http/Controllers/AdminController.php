@@ -9,6 +9,7 @@ use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use Theme;
 use View;
 use Storage;
+use Alert;
 
 use App\Post;
 use App\Page;
@@ -63,6 +64,12 @@ class AdminController extends Controller
     	return view('admin.menu.index');
     }
 
+    public function editMenu(Menu $menu)
+    {
+        $this->seo()->setTitle( 'Edit Menu Item '. $menu->title.' &mdash; ' . $this->seo()->getTitle() );
+        return view('admin.menu.edit', compact('menu'));
+    }
+
     public function storeMenu(Request $request)
     {
         $menu = new Menu($request->all());
@@ -71,6 +78,14 @@ class AdminController extends Controller
         session()->flash('flash_message', 'Menu Item Added!');
 
         return back();
+    }
+
+    public function updateMenu(Request $request, Menu $menu)
+    {
+        $menu->update($request->all());
+        session()->flash('flash_message', 'Menu Item Updated!');
+
+        return redirect('/admin/menus/' );
     }
 
     public function posts()

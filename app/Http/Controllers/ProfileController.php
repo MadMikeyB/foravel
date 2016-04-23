@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\User;
 
 use Hash;
+use Alert;
 
 class ProfileController extends Controller
 {
@@ -40,14 +41,14 @@ class ProfileController extends Controller
 	    	}
 	    	else
 	    	{
-	    		session()->flash('flash_message', 'Incorrect password!');
+	    		Alert::error('Incorrect password!');
 	    		return back();
 	    	}
     	}
 
     	$user->update($request->all());
     	
-    	session()->flash('flash_message', 'Yay! You updated your profile!');
+    	Alert::success('Yay! You updated your profile!');
 
     	return redirect('@' . $user->slug);
     }

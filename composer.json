@@ -20,7 +20,8 @@
         "rachidlaasri/laravel-installer": "^1.4",
         "golonka/bbcodeparser": "^2.2",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "uxweb/sweet-alert": "^1.1"
 
     },
     "require-dev": {
