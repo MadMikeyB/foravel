@@ -82,7 +82,7 @@
 									@endif
 									<td><i class="fa {{ $m->icon }} fa-2x"></i></td>
 									<td><a href="/admin/menus/edit/{{ $m->id }}" class="btn btn-primary btn-block"><i class="fa fa-pencil"></i></a></td>
-									<td><a href="/admin/menus/delete/{{ $m->id }}" class="btn btn-danger btn-block"><i class="fa fa-trash"></i></a></td>
+									<td><a href="/admin/menus/delete/{{ $m->id }}" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteModal{{$m->id}}"><i class="fa fa-trash"></i></a></td>
 								</tr>
 							@endforeach
 						@endif
@@ -92,4 +92,32 @@
 		</div>
 	</div>
 </div>
+@if ( $menu )
+@foreach ( $menu as $m )
+<!-- Modal -->
+<div class="modal fade" id="deleteModal{{$m->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{$m->id}}Label">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="deleteModal{{$m->id}}Label">Are you sure?</h4>
+			</div>
+			<div class="modal-body">
+				<form action="/admin/menus/delete/{{ $m->id }}" method="post" role="form">
+					{{ method_field('DELETE') }}
+					{{ csrf_field() }}
+					<p>Please confirm you are deleting: {{ $m->title }}?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-danger btn-block">Yes, Delete!</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@endforeach
+@endif
+
 @stop

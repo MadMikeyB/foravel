@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web', 'auth', 'menu', 'admin']], function() {
 
     Route::post('admin/menus', 'AdminController@storeMenu');
     Route::patch('admin/menus/edit/{menu}', 'AdminController@updateMenu');
+    Route::delete('admin/menus/delete/{menu}', 'AdminController@destroyMenu');
 
     Route::get('posts/create', ['as' => 'create_post', 'uses' => 'PostsController@create']);
     Route::post('posts', 'PostsController@store');

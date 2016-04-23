@@ -83,7 +83,17 @@ class AdminController extends Controller
     public function updateMenu(Request $request, Menu $menu)
     {
         $menu->update($request->all());
+        
         session()->flash('flash_message', 'Menu Item Updated!');
+
+        return redirect('/admin/menus/' );
+    }
+
+    public function destroyMenu(Menu $menu)
+    {
+        $menu->delete();
+
+        session()->flash('flash_message', 'Menu Item Deleted!');
 
         return redirect('/admin/menus/' );
     }

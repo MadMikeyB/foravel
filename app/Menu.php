@@ -17,5 +17,17 @@ class Menu extends Model
 		{
 			return $menu;
 		}
+		else
+		{
+			$menu =  [
+				'id'		=> '1',
+				'title'		=> 'Home (No Menus set up)',
+				'url'		=> '#',
+				'position'	=> '1',
+				'group'		=> '3',
+				'icon'		=> 'fa-home',
+			];
+			self::create($menu);
+		}
 	}
 }
