@@ -17,13 +17,14 @@ class DatabaseSeeder extends Seeder
     	{
 	    	foreach ( $this->toTruncate as $table )
 	    	{
-	    		DB::table($table)->truncate();
+	    		//DB::table($table)->truncate();
 	    	}
     	
 
             $this->call(UsersTableSeeder::class);
             $this->call(PostsTableSeeder::class);
             $this->call(CommentsTableSeeder::class);
+            $this->call(ForumSeeder::class);
             // $this->call(PagesTableSeeder::class);
         }
     }

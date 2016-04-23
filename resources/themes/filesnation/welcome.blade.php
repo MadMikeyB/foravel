@@ -39,9 +39,9 @@
             <a href="/read/{{ $post->slug }}" class="defbutton"><i class="fa fa-reply"></i>Read full article</a>
         </div>
     </div>
+    <div class="clear-float do-the-split"></div>
     @endforeach
     @endunless
-    <div class="clear-float do-the-split"></div>
 
     <div class="clear-float do-the-split" style="margin-bottom:5px;"></div>
     <div>

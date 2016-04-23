@@ -56,3 +56,10 @@ Breadcrumbs::register('show_post', function($breadcrumbs, $post)
 	$breadcrumbs->parent('all_posts');
     $breadcrumbs->push($post->title, route('show_post', $post->slug));
 });
+
+// Home > Edit Profile
+Breadcrumbs::register('edit_profile', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Edit Profile');
+});

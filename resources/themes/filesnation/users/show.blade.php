@@ -24,6 +24,7 @@
 		<div class="game-info-buttons">
 			<a href="#" class="defbutton green"><i class="fa fa-plus"></i>Follow {{ $user->name }}</a>
 			<a href="#" class="defbutton"><i class="fa fa-envelope"></i>Message {{ $user->name }}</a>
+			<a href="&#64;{{ $user->slug }}/edit" class="defbutton"><i class="fa fa-pencil"></i> Edit Profile</a>
 		</div>
 		<div class="game-info-graph">
 			<div>

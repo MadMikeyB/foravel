@@ -40,3 +40,28 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
         'post_id'       => rand(1,50),
     ];
 });
+
+$factory->define(App\Forum::class, function (Faker\Generator $faker) {
+    return [
+        'name'          => $faker->sentence,
+        'description'   => $faker->sentence,
+        'parent'        => '1',
+    ];
+});
+
+$factory->define(App\Thread::class, function (Faker\Generator $faker) {
+    return [
+        'title'          => $faker->sentence,
+        'user_id'        => rand(1,50),
+        'forum_id'       => rand(1,30),
+        'status'         => 'open',
+    ];
+});
+
+$factory->define(App\ForumPost::class, function (Faker\Generator $faker) {
+    return [
+        'content'        => $faker->paragraph(rand(20,140)),
+        'user_id'        => rand(1,50),
+        'thread_id'      => rand(1,500),
+    ];
+});

@@ -1,5 +1,6 @@
 @inject('comments', 'App\Comment')
 @inject('posts', 'App\Post')
+@inject('forumposts', 'App\ForumPost')
 
 <!DOCTYPE HTML>
 <html lang = "en">

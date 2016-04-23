@@ -35,7 +35,7 @@ class PostsController extends Controller
     {
         $this->seo()->setTitle( 'All Posts &mdash; ' . $this->seo()->getTitle() );
 
-    	$posts = Post::where('status', 'publish')->paginate('4');
+    	$posts = Post::where('status', 'publish')->orderBy('id', 'DESC')->paginate('4');
     	return view('posts.index', compact('posts'));
     }
 

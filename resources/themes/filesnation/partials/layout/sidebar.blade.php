@@ -40,6 +40,26 @@
 			</div>
 		</div>
 	@endunless
+	
+	@unless ( $forumposts->all()->isEmpty() )
+	<div class="panel">
+		<h2>Latest Forum Posts</h2>
+		<div class="panel-content no-padding">
+			@foreach ( $forumposts->orderBy('id', 'DESC')->paginate('5') as $fpost )
+			<div class="new-forum-line">
+				<a href="/&#64;{{ $fpost->user->slug }}" class="avatar online user-tooltip">
+					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $fpost->user->email ) ) ) }}?s=39" class="setborder" title="" alt="" />
+				</a>
+				<a href="/forums/{{ $fpost->thread->forum->slug }}/{{ $fpost->thread->slug }}" class="f_content">
+					<span class="sidebar-comments"><span>{{ $fpost->thread->posts->count() }}</span></span>
+					<strong>{{ $fpost->thread->title }}</strong>
+					<span><b class="user-tooltip">{{ $fpost->user->name }}</b>, {{ $fpost->created_at->diffForHumans() }}</span>
+				</a>
+			</div>
+			@endforeach
+		</div>
+	</div>
+	@endunless
 
 	@unless ( $comments->all()->isEmpty() )
 	<div class="panel">
