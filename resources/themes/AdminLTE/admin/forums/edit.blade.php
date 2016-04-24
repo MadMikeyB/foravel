@@ -31,6 +31,11 @@
 						<label for="description" class="control-label">Description</label>
 						<input type="text" class="form-control input-lg" id="description" name="description" placeholder="Forum Description" value="{{ $forum->description }}">
 					</div>
+					
+					<div class="form-group">
+						<label for="parent" class="control-label">Parent</label>
+						<input type="number" class="form-control input-lg" id="parent" name="parent" placeholder="Forum Parent" value="{{ $forum->parent }}">
+					</div>
 
 					<div class="form-group">
 						<label for="position" class="control-label">Position</label>

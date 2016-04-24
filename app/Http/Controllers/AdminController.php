@@ -110,7 +110,7 @@ class AdminController extends Controller
     public function forums()
     {
         $this->seo()->setTitle( 'Forum Manager &mdash; ' . $this->seo()->getTitle() );
-        $forums = Forum::paginate(10);
+        $forums = Forum::orderBy('position', 'asc')->paginate(10);
         return view('admin.forums.index', compact('forums'));
     }
 

@@ -47,13 +47,13 @@
 		<div class="panel-content no-padding">
 			@foreach ( $forumposts->orderBy('id', 'DESC')->paginate('5') as $fpost )
 			<div class="new-forum-line">
-				<a href="/&#64;{{ $fpost->user->slug }}" class="avatar online user-tooltip">
+				<a href="/&#64;{{ $fpost->user->slug }}" class="avatar @if ( $fpost->user->isOnline() ) online @else offline @endif app">
 					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $fpost->user->email ) ) ) }}?s=39" class="setborder" title="" alt="" />
 				</a>
 				<a href="/forums/{{ $fpost->thread->forum->slug }}/{{ $fpost->thread->slug }}" class="f_content">
 					<span class="sidebar-comments"><span>{{ $fpost->thread->posts->count() }}</span></span>
 					<strong>{{ $fpost->thread->title }}</strong>
-					<span><b class="user-tooltip">{{ $fpost->user->name }}</b>, {{ $fpost->created_at->diffForHumans() }}</span>
+					<span><b class="app">{{ $fpost->user->name }}</b>, {{ $fpost->created_at->diffForHumans() }}</span>
 				</a>
 			</div>
 			@endforeach
@@ -68,13 +68,13 @@
 			@foreach ( $comments->orderBy('id', 'DESC')->paginate('5') as $comment )
 			@if ( $comment->post->status == 'publish')
 			<div class="new-forum-line">
-				<a href="/&#64;{{ $comment->user->slug }}" class="avatar online user-tooltip">
+				<a href="/&#64;{{ $comment->user->slug }}" class="avatar @if ( $comment->user->isOnline() ) online @else offline @endif app">
 					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $comment->user->email ) ) ) }}?s=39" class="setborder" title="" alt="" />
 				</a>
 				<a href="/read/{{ $comment->post->slug }}" class="f_content">
 					<span class="sidebar-comments"><span>{{ $comment->post->comments->count() }}</span></span>
 					<strong>{{ $comment->post->title }}</strong>
-					<span><b class="user-tooltip">{{ $comment->user->name }}</b>, {{ $comment->created_at->diffForHumans() }}</span>
+					<span><b class="app">{{ $comment->user->name }}</b>, {{ $comment->created_at->diffForHumans() }}</span>
 				</a>
 			</div>
 			@endif

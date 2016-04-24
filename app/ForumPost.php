@@ -14,7 +14,8 @@ class ForumPost extends Model
 
     public function getContentAttribute( $content )
     {
-        return BBCode::parse($content); 
+        $content = nl2br($content);
+        return BBCode::parseCaseInsensitive($content);
     }   
 
     public function thread()

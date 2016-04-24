@@ -14,11 +14,10 @@
 			@endunless
 		</div>
 		<div class="article-icons">
-			<a class="user-tooltip" href=
+			<a href=
 			"/&#64;{{$post->user->slug}}"><i class="fa fa-fire"></i>{{
 			$post->user->name }}</a> <a href="#"><i class="fa fa-calendar"></i> {{
-			$post->created_at->diffForHumans() }}</a> <a class="show-likes" href=
-			"#"><i class="fa fa-heart"></i>20 likes</a>
+			$post->created_at->diffForHumans() }}</a>
 		</div>
 		<div class="clear-float do-the-split"></div>
 		<div class="article-content">

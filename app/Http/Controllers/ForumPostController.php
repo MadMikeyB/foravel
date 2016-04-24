@@ -82,9 +82,9 @@ class ForumPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Forum $forum, Thread $thread, ForumPost $forumpost)
     {
-        //
+        return view('forums.posts.edit', compact(['forum', 'thread', 'forumpost']));
     }
 
     /**

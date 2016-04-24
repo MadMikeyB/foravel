@@ -139,6 +139,9 @@ Route::group(['middleware' => ['web', 'menu']], function () {
         Route::get('forums/{forums}/create', ['as' => 'create_thread', 'uses' => 'ThreadController@create']);
         // Show Thread
         Route::get('forums/{forums}/{threads}', ['as' => 'show_thread', 'uses' => 'ThreadController@show']);
+        // Edit Post
+        Route::get('forums/{forums}/{threads}/replies/{forumpost}/edit', ['as' => 'edit_forum_post', 'uses' => 'ForumPostController@edit']);
+
         // Store Forum
         Route::post('forums', ['as' => 'store_forum', 'uses' => 'ForumController@store']);
         // Store Thread

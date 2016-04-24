@@ -61,7 +61,7 @@
 				</div>
 				<div class="bottom">
 					<a href="#" class="defbutton admin-color"><i class="fa fa-trash-o"></i></a>
-					<a href="/forums/{{ $post->thread->forum->slug }}/{{ $post->thread->slug }}/edit/{{ $post->id }}" class="defbutton admin-color"><i class="fa fa-pencil"></i></a>
+					<a href="/forums/{{ $post->thread->forum->slug }}/{{ $post->thread->slug }}/replies/{{ $post->id }}/edit" class="defbutton admin-color"><i class="fa fa-pencil"></i></a>
 					<a href="#quick-reply" class="defbutton scroll"><i class="fa fa-comment-o"></i>Reply</a>
 				</div>
 			</div>

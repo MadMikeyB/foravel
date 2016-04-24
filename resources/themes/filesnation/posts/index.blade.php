@@ -36,7 +36,7 @@
         <div class="article-content">
             <h3><a href="/read/{{ $post->slug }}">{{ $post->title }}</a></h3>
             <div class="article-icons">
-                <a href="/&#64;{{ $post->user->slug }}" class="user-tooltip"><i class="fa fa-fire"></i>{{ $post->user->name }}</a>
+                <a href="/&#64;{{ $post->user->slug }}" class="app"><i class="fa fa-fire"></i>{{ $post->user->name }}</a>
                 <a href="#"><i class="fa fa-calendar"></i>{{ $post->created_at->diffForHumans() }}</a>
             </div>
             <p>{!! Markdown::convertToHtml(strip_tags(str_limit($post->content, 155))) !!}</p>
