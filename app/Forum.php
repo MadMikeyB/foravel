@@ -24,7 +24,7 @@ class Forum extends Model implements SluggableInterface
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'slug', 'parent'
+        'name', 'description', 'slug', 'parent', 'position'
     ];
 
     // hasMany Thread
@@ -32,4 +32,5 @@ class Forum extends Model implements SluggableInterface
     {
     	return $this->hasMany('App\Thread')->orderBy('id', 'asc');
     }
+
 }

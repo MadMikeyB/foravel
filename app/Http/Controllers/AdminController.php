@@ -19,6 +19,7 @@ use App\Image;
 use App\Menu;
 use App\UserGroup;
 use App\Setting;
+use App\Forum;
 
 class AdminController extends Controller
 {
@@ -61,7 +62,7 @@ class AdminController extends Controller
     {
         $this->seo()->setTitle( 'Menu Manager &mdash; ' . $this->seo()->getTitle() );
 
-    	return view('admin.menu.index');
+        return view('admin.menu.index');
     }
 
     public function editMenu(Menu $menu)
@@ -83,7 +84,7 @@ class AdminController extends Controller
     public function updateMenu(Request $request, Menu $menu)
     {
         $menu->update($request->all());
-        
+
         session()->flash('flash_message', 'Menu Item Updated!');
 
         return redirect('/admin/menus/' );
@@ -103,6 +104,38 @@ class AdminController extends Controller
         $this->seo()->setTitle( 'Post Manager &mdash; ' . $this->seo()->getTitle() );
         $posts = Post::withTrashed()->paginate(10);
         return view('admin.posts.index', compact('posts'));
+    }
+
+    public function forums()
+    {
+        $this->seo()->setTitle( 'Forum Manager &mdash; ' . $this->seo()->getTitle() );
+        $forums = Forum::paginate(10);
+        return view('admin.forums.index', compact('forums'));
+    }
+
+    public function editForum(Forum $forum)
+    {
+        $this->seo()->setTitle( 'Forum '. $forum->name.' &mdash; ' . $this->seo()->getTitle() );
+        return view('admin.forums.edit', compact('forum'));
+    }
+
+
+    public function updateForum(Request $request, Forum $forum)
+    {
+        $forum->update($request->all());
+
+        session()->flash('flash_message', 'Forum Updated!');
+
+        return redirect('/admin/forums/' );
+    }
+
+    public function destroyForum(Forum $forum)
+    {
+        $forum->delete();
+
+        session()->flash('flash_message', 'Forum Deleted!');
+
+        return redirect('/admin/forums/' );
     }
 
     public function pages()

@@ -22,6 +22,11 @@ Route::group(['middleware' => ['web', 'auth', 'menu', 'admin']], function() {
     Route::get('admin/settings', 'AdminController@settings');
     Route::post('admin/settings', 'AdminController@storeSettings');
 
+    Route::get('admin/forums', 'AdminController@forums');
+    Route::get('admin/forums/edit/{forum}', 'AdminController@editForum');
+    Route::patch('admin/forums/edit/{forum}', 'AdminController@updateForum');
+    Route::delete('admin/forums/delete/{forum}', 'AdminController@destroyForum');
+
     Route::get('admin/editor', 'AdminController@editor');
     Route::get('admin/editor/{theme?}', 'AdminController@editor');
     Route::get('admin/editor/edit/{path?}', 'AdminController@editFile')->where('path', '(.*)');
