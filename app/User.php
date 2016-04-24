@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
+use Cache;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -44,6 +45,11 @@ class User extends Authenticatable implements SluggableInterface
     public function isAdmin()
     {
         return $this->group()->where('id', 1)->first();
+    }
+
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
     }
 
     public function group()

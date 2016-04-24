@@ -25,12 +25,12 @@
 	<!-- BEGIN .forum-post -->
 		<div class="forum-post" id="post-{{ $post->id }}">
 			<div class="user-block">
-				<a href="/&#64;{{ $post->user->slug }}" class="avatar online user-tooltip">
+				<a href="/&#64;{{ $post->user->slug }}" class="avatar @if ( $post->user->isOnline() ) online @else offline @endif">
 					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=75" class="setborder" title="" alt="" />
 				</a>
 				<div class="user-account">
 					<div>
-						<a href="/&#64;{{ $post->user->slug }}" class="forum-user user-tooltip"><b>{{ $post->user->name }}</b></a>
+						<a href="/&#64;{{ $post->user->slug }}" class="forum-user"><b>{{ $post->user->name }}</b></a>
 					</div>
 					<div>
 						<span>XP: <strong class="rating-good">+{{ $post->user->xp->points }}</strong></span>
