@@ -10,6 +10,7 @@ use Theme;
 use View;
 use Storage;
 use Alert;
+use Cache;
 
 use App\Post;
 use App\Page;
@@ -167,6 +168,15 @@ class AdminController extends Controller
         $themes = Storage::disk('resources')->directories('themes');
         $pages = Page::all();
         return view('admin.settings.index', compact('settings', 'themes', 'pages'));
+    }
+
+    public function tools()
+    {
+        Cache::flush();
+
+        session()->flash('flash_message', 'Cache Cleared!');
+
+        return view('admin.index');
     }
 
     public function editor( $theme = null)

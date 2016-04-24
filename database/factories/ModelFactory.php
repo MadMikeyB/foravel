@@ -52,8 +52,8 @@ $factory->define(App\Forum::class, function (Faker\Generator $faker) {
 $factory->define(App\Thread::class, function (Faker\Generator $faker) {
     return [
         'title'          => $faker->sentence,
-        'user_id'        => rand(1,50),
-        'forum_id'       => rand(1,30),
+        'user_id'        => rand(1,2),
+        'forum_id'       => rand(1,10),
         'status'         => 'open',
     ];
 });
@@ -61,7 +61,7 @@ $factory->define(App\Thread::class, function (Faker\Generator $faker) {
 $factory->define(App\ForumPost::class, function (Faker\Generator $faker) {
     return [
         'content'        => $faker->paragraph(rand(20,140)),
-        'user_id'        => rand(1,50),
-        'thread_id'      => rand(1,500),
+        'user_id'        => rand(1,2),
+        'thread_id'      => rand(1,100),
     ];
 });

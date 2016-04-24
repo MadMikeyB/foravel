@@ -119,7 +119,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <section class="content">
-
+          @include('partials.layout.flashmessage')
+          @include('partials.layout.errors')
         	@yield('content')
 
         </section><!-- /.content -->

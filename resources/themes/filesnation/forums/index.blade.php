@@ -41,7 +41,7 @@
 						<span>{{ $forum->threads->last()->posts->count() }} {{ str_plural('Reply', $forum->threads->last()->posts->count() ) }}</span>
 					</div>
 					<div class="forum-recent">
-						<a href="/forums/{{$forum->slug }}" class="avatar online user-tooltip">
+						<a href="/forums/{{$forum->slug }}" class="avatar @if ( $forum->threads->last()->user->isOnline() ) online @else offline @endif">
 							<span class="wrapimg"><img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $forum->threads->last()->user->email ) ) ) }}?s=39" class="setborder" title="" alt=""></span>
 						</a>
 						<span>

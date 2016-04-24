@@ -21,7 +21,7 @@ class LogLastUserActivity
 
         if( Auth::check() ) 
         {
-            $expiresAt = Carbon::now()->addMinutes(5);
+            $expiresAt = Carbon::now()->addMinutes(1);
             Cache::put('user-is-online-' . Auth::user()->id, true, $expiresAt);
         }
 
