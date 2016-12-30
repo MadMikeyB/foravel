@@ -33,9 +33,14 @@
 			</div>
 			<div class="col-md-3 col-xs-12">
 				<span class="text-muted">{{ $forum->threads->count() }} {{ str_plural('Thread', $forum->threads->count() ) }}</span><br>
-				<span class="text-muted">{{ $forum->threads->last()->posts->count() }} {{ str_plural('Reply', $forum->threads->last()->posts->count() ) }}</span>
+				@if ( $forum->threads->last() )
+					<span class="text-muted">{{ $forum->threads->last()->posts->count() }} {{ str_plural('Reply', $forum->threads->last()->posts->count() ) }}</span>				
+				@else
+					<span class="text-muted">0 Replies</span>
+				@endif
 			</div>
 			<div class="col-md-3 col-xs-12">
+				@if ( $forum->threads->last() )
 				<div class="media">
 				  <div class="media-right">
 				    <a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}" class="avatar @if ( $forum->threads->last()->user->isOnline() ) online @else offline @endif">
@@ -48,6 +53,7 @@
 						<small class="text-muted"><a href="/&#64;{{ $forum->threads->last()->user->slug }}"><strong>{{ $forum->threads->last()->user->name }}</strong></a></small>
 				  </div>
 				</div>
+				@endif
 			</div>
 		</div>
 		@endif

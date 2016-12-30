@@ -2,7 +2,7 @@
 
 @section('title')
 	<div class="pull-right">
-		<a type="button" class="btn btn-primary" href="/forums/create"><i class="fa fa-plus-circle"></i> Create Forum</a>
+		<a type="button" class="btn btn-primary" href="/admin/forums/create"><i class="fa fa-plus-circle"></i> Create Forum</a>
 	</div>
 	<h1>{{ Setting::get('site_title', 'MPress 2.0')}}
 		<small>Forum Manager</small>
