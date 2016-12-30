@@ -17,8 +17,29 @@
 	<a id="post-{{$post->id}}"></a>
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<div class="col-md-2 col-sm-2 col-xs-12">
-				<h3 style="margin-top: 0;">{{ $post->user->name }}</h3>
+			<div class="col-md-3 col-xs-12">
+
+			<div class="media">
+			  <div class="media-left">
+			    <a href="/&#64;{{ strtolower($post->user->name) }}">
+			      <img class="media-object wrapimg" src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=100" alt="Go to {{ $post->user->name }}'s profile">
+			    </a>
+			  </div>
+			  <div class="media-body">
+			    <h4 class="media-heading"><strong>{{ $post->user->name }}</strong>
+				@if ( $post->user->isOnline() )
+					<small><span class="user-online">Online</span></small>
+				@else
+					<small><span class="user-offline">Offline</span></small>
+				@endif
+				</h4>
+				<p><strong>XP</strong>: +{{ $post->user->xp->points }}</p>
+				<p><strong>Joined</strong>: {{ $post->user->created_at->format('d/m/Y') }}</p>
+				<p><strong>Posts</strong>: {{ $post->user->forumposts->count() }} {{ str_plural('post', $post->user->forumposts->count()) }}</p>
+			  </div>
+			</div>
+
+				{{-- <h3 style="margin-top: 0;">{{ $post->user->name }}</h3>
 				<a href="/users/{{ $post->user->name }}" class="thumbnail">
 					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=150">
 				</a>
@@ -29,10 +50,11 @@
 				@endif
 				<p><strong>XP</strong>: +{{ $post->user->xp->points }}</p>
 				<p><strong>Joined</strong>: {{ $post->user->created_at->format('d/m/Y') }}</p>
-				<p><strong>Posts</strong>: {{ $post->user->forumposts->count() }} {{ str_plural('post', $post->user->forumposts->count()) }}</p>
+				<p><strong>Posts</strong>: {{ $post->user->forumposts->count() }} {{ str_plural('post', $post->user->forumposts->count()) }}</p> --}}
+
 
 			</div>
-			<div class="col-md-10 col-sm-10 col-xs-12">
+			<div class="col-md-7 col-xs-12">
 				{!! $post->content !!}
 			</div>
 		</div>
@@ -50,7 +72,7 @@
 				</a>
 
 			</div>
-			<div class="col-md-10 col-sm-10 col-xs-12">
+			<div class="col-md-8 col-sm-10 col-xs-12">
 				<form action="/forums/{{ $thread->forum->slug }}/{{ $thread->slug }}" method="POST" role="form">
 					{{ csrf_field() }}
 				
