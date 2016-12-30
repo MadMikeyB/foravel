@@ -72,12 +72,12 @@
 				</a>
 
 			</div>
-			<div class="col-md-8 col-sm-10 col-xs-12">
+			<div class="col-md-10 col-sm-10 col-xs-12">
 				<form action="/forums/{{ $thread->forum->slug }}/{{ $thread->slug }}" method="POST" role="form">
 					{{ csrf_field() }}
 				
 					<div class="form-group">
-						<textarea name="content" id="input" class="form-control mp-editor"  required="required"></textarea>
+						<textarea name="content" id="input" class="form-control mp-editor" cols="3" required="required"></textarea>
 					</div>
 				
 					<button type="submit" class="btn btn-primary">Add Reply</button>

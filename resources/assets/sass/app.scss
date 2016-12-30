@@ -81,22 +81,22 @@ body {
 	}
 
 	.avatar {
-		&.online {
-			&:before {
-			    content: '';
-			    display: block;
-			    position: absolute;
-				bottom: 0;
-			    left: 35%;
-			    width: 6px;
-			    height: 6px;
-			    border-radius: 3px;
-			    background: #7ec700;
-			    z-index: 11;
-			    box-shadow: 0px 0px 0px 1px #eeeeee;
-			    font-size: 0;
-			}
-		}
+		// &.online {
+		// 	&:before {
+		// 	    content: '';
+		// 	    display: block;
+		// 	    position: absolute;
+		// 		bottom: 0;
+		// 	    left: 35%;
+		// 	    width: 6px;
+		// 	    height: 6px;
+		// 	    border-radius: 3px;
+		// 	    background: #7ec700;
+		// 	    z-index: 11;
+		// 	    box-shadow: 0px 0px 0px 1px #eeeeee;
+		// 	    font-size: 0;
+		// 	}
+		// }
 	}
 
 	.wrapimg {
@@ -109,6 +109,10 @@ body {
 	    &:hover {
 			border-color: #CCCCCC;
 	    }
+	}
+
+	textarea {
+		font-family: sans-serif;
 	}
 }
 

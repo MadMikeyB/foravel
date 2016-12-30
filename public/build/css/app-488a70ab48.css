@@ -50,19 +50,6 @@ body {
   body .user-offline {
     color: #DDDDDD;
     font-weight: italic; }
-  body .avatar.online:before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 35%;
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
-    background: #7ec700;
-    z-index: 11;
-    box-shadow: 0px 0px 0px 1px #eeeeee;
-    font-size: 0; }
   body .wrapimg {
     border: 1px solid #EEEEEE;
     border-radius: 0.5rem;
@@ -72,5 +59,7 @@ body {
     position: relative; }
     body .wrapimg:hover {
       border-color: #CCCCCC; }
+  body textarea {
+    font-family: sans-serif; }
 
 /*# sourceMappingURL=app.css.map */

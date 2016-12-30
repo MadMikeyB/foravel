@@ -29,6 +29,8 @@ else
 	    Route::get('admin/users', 'Admin\UsersController@index');
 
 	    Route::get('admin/menus', 'Admin\MenusController@index');
+	    Route::get('admin/menus/edit/{menu}', 'Admin\MenusController@edit');
+	    Route::patch('admin/menus/edit/{menu}', 'Admin\MenusController@update');
 	    Route::post('admin/menus', 'Admin\MenusController@store');
 
 	    Route::get('admin/settings', 'Admin\SettingsController@index');
