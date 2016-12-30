@@ -64,6 +64,7 @@
 	{{ $posts->links() }}
 
 	<a id="reply"></a>
+	@if ( Auth::check() )
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-md-2 col-sm-2 col-xs-12">
@@ -85,6 +86,7 @@
 			</div>
 		</div>
 	</div>
+	@endif
 
 
 
