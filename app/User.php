@@ -57,6 +57,11 @@ class User extends Authenticatable implements SluggableInterface
         return $this->hasOne(UserGroup::class, 'id', 'group');
     }
 
+    public function usergroup()
+    {
+    	return $this->belongsTo(UserGroup::class, 'group', 'id');
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class, 'author_id', 'id');

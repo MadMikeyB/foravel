@@ -49,7 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   |               | sidebar-mini                            |
   |---------------------------------------------------------|
   -->
-  <body class="hold-transition skin-black sidebar-mini sidebar-collapse">
+  <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
       <!-- Main Header -->
@@ -59,7 +59,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>M</b>P</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">{{ Setting::get('site_title', 'MPress 2.0') }}</span>
+          <span class="logo-lg"><b>{{ Setting::get('site_title', 'MPress 2.0') }}</b></span>
         </a>
 
         <!-- Header Navbar -->
@@ -77,14 +77,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="https://www.gravatar.com/avatar/b3bcbfc4d90f78902eaebf6d5e23d346?s=160" class="user-image" alt="User Image">
+                  <img src="https://www.gravatar.com/avatar/{{ md5(strtolower( Auth::user()->email ))}}?s=160" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="https://www.gravatar.com/avatar/b3bcbfc4d90f78902eaebf6d5e23d346?s=160" class="img-circle" alt="User Image">
+                    <img src="https://www.gravatar.com/avatar/{{ md5(strtolower( Auth::user()->email ))}}?s=160" class="img-circle" alt="User Image">
                     <p>
                       {{ Auth::user()->name }}
                       <small>Member since @datetime(Auth::user()->created_at)</small>
@@ -130,11 +130,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Powered by <a href="http://mpresscms.com" title="MPress - The CMS for 2016">MPress</a>
+          Powered by <a href="http://mpresscms.com" title="MPress - The CMS for the modern web">MPress</a>
         </div>
         <!-- Default to the left -->
 
-        <strong>&copy; {{ date('Y') }} {{ Setting::get('site_name', 'MPress 2.0') }}.</strong> All rights reserved.
+        <strong>&copy; {{ date('Y') }} {{ Setting::get('site_title', 'MPress 2.0') }}.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->

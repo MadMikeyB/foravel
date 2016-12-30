@@ -34,6 +34,7 @@
 						<label>Home Page</label>
 						<select name="home_page" class="form-control input-lg">
 								<option value="default">Latest Posts</option>
+								<option value="forums">Forum Listing</option>
 							@foreach ( $pages as $page)
 								<option value="{{ $page->slug }}">{{ $page->title }}</option>
 							@endforeach

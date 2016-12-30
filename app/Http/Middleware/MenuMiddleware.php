@@ -66,14 +66,10 @@ class MenuMiddleware
             $menu->add('Home', '')->prepend('<i class="fa fa-home"></i><span>')->prepend('</span>');
             $menu->add('Dashboard', 'admin')->prepend('<i class="fa fa-dashboard"></i><span>')->prepend('</span>');
             $menu->add('Settings', 'admin/settings')->prepend('<i class="fa fa-cogs"></i><span>')->prepend('</span>');
-            $menu->add('Theme Editor', 'admin/editor')->prepend('<i class="fa fa-paint-brush"></i><span>')->prepend('</span>');
             $menu->add('Menus', 'admin/menus')->prepend('<i class="fa fa-th"></i><span>')->prepend('</span>');
             $menu->add('Forums', 'admin/forums')->prepend('<i class="fa fa-comments-o"></i><span>')->prepend('</span>');
             $menu->add('Users', 'admin/users')->prepend('<i class="fa fa-users"></i><span>')->prepend('</span>');
-            $menu->add('Posts', 'admin/posts')->prepend('<i class="fa fa-pencil-square-o"></i><span>')->prepend('</span>');
             $menu->add('Pages', 'admin/pages')->prepend('<i class="fa fa-file-o"></i><span>')->prepend('</span>');
-            $menu->add('Comments', 'admin/comments')->prepend('<i class="fa fa-comments"></i><span>')->prepend('</span>');
-            $menu->add('Tools', 'admin/tools')->prepend('<i class="fa fa-wrench"></i><span>')->prepend('</span>');
             $menu->add('Log Out', 'logout')->prepend('<i class="fa fa-sign-out"></i><span>')->prepend('</span>');
         });
 

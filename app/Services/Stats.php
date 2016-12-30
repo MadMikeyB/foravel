@@ -18,7 +18,7 @@ class Stats {
 
 	public function most( $model, $groupBy )
 	{
-		$return = $model::selectRaw('*, COUNT(*) as count')->groupBy($groupBy)->orderBy('count', 'DESC')->withTrashed()->first();
+		$return = $model::selectRaw('*, COUNT(*) as count')->groupBy($groupBy)->orderBy('count', 'DESC')->first();
 
 		if ( $return )
 		{

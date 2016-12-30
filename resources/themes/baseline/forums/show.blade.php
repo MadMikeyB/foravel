@@ -56,7 +56,7 @@
 			<p>No threads have been created yet. :(</p>
 		</div>
 		<div class="col-md-4 col-sm-2 col-xs-12">
-			<a href="/threads/create" class="btn btn-primary btn-block">Be the First!</a>
+			<a href="/forums/{{ $forum->slug }}/create" class="btn btn-primary btn-block">Be the First!</a>
 		</div>
 	</div>	
 </div>

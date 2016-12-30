@@ -4,16 +4,19 @@
 {!! Breadcrumbs::render('forum') !!}
 
 <div class="page-header">
-  <h1>Foravel
+  <h1>{{ Setting::get('site_title', 'Foravel') }}
   <small></small></h1>
 </div>
 
 <div class="panel panel-default">
 	<div class="panel-body">
-		<div class="col-md-8 col-sm-10 col-xs-12">
+		<div class="col-md-6 col-xs-12">
 			<h1 class="panel-title">Forum Name</h1>
 		</div>
-		<div class="col-md-4 col-sm-2 col-xs-12">
+		<div class="col-md-3 col-xs-12">
+			<h1 class="panel-title"></h1>
+		</div>
+		<div class="col-md-3 col-xs-12">
 			<h1 class="panel-title">Last Post</h1>
 		</div>
 	</div>
@@ -25,12 +28,26 @@
 		</div>
 		@else
 		<div class="panel-body">
-			<div class="col-md-8 col-sm-10 col-xs-12">
+			<div class="col-md-6 col-xs-12">
 				<h2 class="panel-title"><a href="/forums/{{$forum->slug }}">{{ $forum->name }}</a></h2><p class="text-muted">{{ $forum->description }}</p>
 			</div>
-			<div class="col-md-4 col-sm-2 col-xs-12">
-				<p>{{ $forum->threads->count() }} {{ str_plural('thread', $forum->threads->count() ) }}</p>
-				<p class="text-muted">Last posted in {{ $forum->updated_at->diffForHumans() }}</p>
+			<div class="col-md-3 col-xs-12">
+				<span class="text-muted">{{ $forum->threads->count() }} {{ str_plural('Thread', $forum->threads->count() ) }}</span><br>
+				<span class="text-muted">{{ $forum->threads->last()->posts->count() }} {{ str_plural('Reply', $forum->threads->last()->posts->count() ) }}</span>
+			</div>
+			<div class="col-md-3 col-xs-12">
+				<div class="media">
+				  <div class="media-right">
+				    <a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}" class="avatar @if ( $forum->threads->last()->user->isOnline() ) online @else offline @endif">
+				      <img class="media-object wrapimg" src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $forum->threads->last()->user->email ) ) ) }}?s=60" alt="{{ $forum->threads->last()->title }} - last post by {{ $forum->threads->last()->user->name }}">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading"><a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}">{{ $forum->threads->last()->title }}</a></h4>
+						<small class="text-muted">{{ $forum->updated_at->diffForHumans() }}</small>
+						<small class="text-muted"><a href="/&#64;{{ $forum->threads->last()->user->slug }}"><strong>{{ $forum->threads->last()->user->name }}</strong></a></small>
+				  </div>
+				</div>
 			</div>
 		</div>
 		@endif

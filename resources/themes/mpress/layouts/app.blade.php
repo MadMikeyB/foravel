@@ -14,6 +14,8 @@
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}" type="text/css">
+    <!-- wysihtml5 editor -->
+    <link rel="stylesheet" href="{{ Theme::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css', null, true) }}">
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -47,14 +49,26 @@
             </div>
         </div>
     </nav>
-    @include('partials.layout.flashmessage')
-    @include('partials.layout.errors')
+    <div class="container">
+    	@include('partials.layout.flashmessage')
+    	@include('partials.layout.errors')
     
-    @yield('content')
-
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    	@yield('content')
+	</div>
+<!-- jQuery 2.1.4 -->
+    <script src="{{ Theme::asset('plugins/jQuery/jQuery-2.1.4.min.js', null, true) }}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{{ Theme::asset('bootstrap/js/bootstrap.min.js', null, true) }}"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="{{ Theme::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js', null, true) }}"></script>
+    <!-- Page Script -->
+    <script>
+      $(function () {
+        //Add text editor
+        $("textarea.mp-editor").wysihtml5();
+      });
+    </script>
+    @yield('scripts')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

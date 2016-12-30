@@ -81,7 +81,8 @@ class ThreadController extends Controller
     public function show(Forum $forum, Thread $thread)
     {
         $this->seo()->setTitle( $thread->title . ' &mdash; ' . $this->seo()->getTitle() );
-        return view('threads.show', compact('thread'));
+        $posts = $thread->posts()->paginate(10);
+        return view('threads.show', compact('thread', 'posts'));
     }
 
     /**

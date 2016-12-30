@@ -11,7 +11,7 @@
 			</div>
 
 			<div class="box-body">
-				<form action="/pages" method="POST" role="form">
+				<form action="/admin/pages" method="POST" role="form">
 					{{ csrf_field() }}
 					<div class="form-group">
 						<label for="title" class="control-label">Title</label>

@@ -29,7 +29,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="icon" class="control-label">URL</label>
+						<label for="icon" class="control-label">Icon</label>
 						<input type="icon" class="form-control input-lg" id="icon" name="icon" placeholder="Font Awesome Icon (eg, fa-home)">
 					</div>
 
