@@ -68,7 +68,7 @@
         $("textarea.mp-editor").wysihtml5();
       });
     </script>
+    <script src="{{ Theme::asset('js/app.js', null, true) }}"></script>
     @yield('scripts')
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

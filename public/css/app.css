@@ -120,6 +120,11 @@ body {
   opacity: 1; }
 
 #post-content img {
-  max-width: 100%; }
+  width: 100%;
+  cursor: pointer;
+  transition: width 0.3s ease; }
+  #post-content img.full {
+    width: unset !important;
+    transition: width 0.3s ease; }
 
 /*# sourceMappingURL=app.css.map */
