@@ -50,6 +50,14 @@ Breadcrumbs::register('create_post', function($breadcrumbs)
     $breadcrumbs->push('Create Post', route('create_post'));
 });
 
+// Home > Forums > [Forum] > [Thread] > Edit Post
+Breadcrumbs::register('edit_post', function($breadcrumbs, $thread)
+{
+    $breadcrumbs->parent('show_forum', $thread->forum);
+    $breadcrumbs->push($thread->title, route('show_thread', ['forum' => $thread->forum->slug, 'thread' => $thread->slug]));
+    $breadcrumbs->push('Edit Post');
+});
+
 // Home > Posts > [Post]
 Breadcrumbs::register('show_post', function($breadcrumbs, $post)
 {

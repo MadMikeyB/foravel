@@ -54,7 +54,7 @@
 
 
 			</div>
-			<div class="col-md-7 col-xs-12">
+			<div class="col-md-7 col-xs-12" id="post-content">
 				{!! $post->content !!}
 			</div>
 		</div>

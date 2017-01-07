@@ -181,3 +181,7 @@ body {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   opacity: 1;
 }
+
+#post-content img {
+	max-width: 100%;
+}
