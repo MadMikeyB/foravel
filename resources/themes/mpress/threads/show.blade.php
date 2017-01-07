@@ -59,13 +59,21 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<a href="" class="btn btn-default btn-xs"><i class="fa fa-comment-o"></i></a>
-			<a href="/forums/{{ $post->thread->forum->slug }}/{{ $post->thread->slug }}/replies/{{ $post->id }}/edit" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
-			<a href="" class="btn btn-default btn-xs"><i class="fa fa-warning"></i></a>
-			<a href="" class="btn btn-default btn-xs"><i class="fa fa-trash"></i></a>
+			<a href="" class="btn btn-default btn-xs" data-tooltip="Quote Post">
+				<i class="fa fa-comment-o"></i>
+			</a>
+			<a href="/forums/{{ $post->thread->forum->slug }}/{{ $post->thread->slug }}/replies/{{ $post->id }}/edit" class="btn btn-default btn-xs" data-tooltip="Edit Post">
+				<i class="fa fa-pencil"></i>
+			</a>
+			<a href="" class="btn btn-default btn-xs" data-tooltip="Report Post">
+				<i class="fa fa-warning"></i>
+			</a>
+			<a href="" class="btn btn-default btn-xs" data-tooltip="Delete Post">
+				<i class="fa fa-trash"></i>
+			</a>
 
 			<div class="pull-right">
-				<small class="text-muted" data-tooltip="{{ $post->created_at }}">Posted {{ $post->created_at->diffForHumans() }}</small>
+				<span class="text-muted" data-tooltip="{{ $post->created_at }}">Posted {{ $post->created_at->diffForHumans() }}</span>
 			</div>
 		</div>
 	</div>
