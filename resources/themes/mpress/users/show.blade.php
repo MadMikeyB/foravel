@@ -16,19 +16,23 @@
 <div class="box">
 	<div class="row">
 		<div class="col-md-6 col-xs-12">
-			<h3>{{ $user->name }}'s Posts</h3>
-			<ul>
-			@foreach ( $user->posts as $post )
-				<li><a href="{{ url('read', $post->slug) }}">{{ $post->title }}</a></li>
+			<h3>{{ $user->name }}'s Activity</h3>
+			@foreach ( $user->forumposts()->paginate(10) as $post )
+				<div class="list-group">
+				  <a href="{{ url('/forums/' . $post->thread->forum->slug . '/' . $post->thread->slug . '/#post-' . $post->id ) }}" class="list-group-item">
+				    <h4 class="list-group-item-heading">{{ $post->user->name }} posted in {{ $post->thread->title }}</h4>
+				    <p class="list-group-item-text">{!! $post->content !!}</p>
+				  </a>
+				</div>
 			@endforeach
-			</ul>
 		</div>
 		<div class="col-md-6 col-xs-12">
-			<h3>{{ $user->name }}'s Comments</h3>
-			@foreach ( $user->comments as $comment )
-				<cite><a href="{{ url('read', $comment->post->slug) }}">{{ $comment->post->title }}</a></cite>
-				<blockquote>{!! Markdown::convertToHtml(str_limit($comment->body, 80)) !!}</blockquote>
+			<h3>{{ $user->name }}'s Threads</h3>
+			<ul>
+			@foreach ( $user->threads as $thread )
+				<li><a href="{{ url('/forums/' . $thread->forum->slug .'/'.$thread->slug) }}">{{ $thread->title }}</a></li>
 			@endforeach
+			</ul>
 		</div>
 	</div>
 </div>

@@ -16,7 +16,6 @@ class ProfileController extends Controller
     public function show(User $user)
     {
         $this->seo()->setTitle( $user->name . ' &mdash; ' . $this->seo()->getTitle() );
-
     	return view('users.show', compact('user'));
     }
 
