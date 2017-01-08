@@ -221,15 +221,15 @@ return [
          * Custom Facades...
          */
                 
-        'Markdown'      => GrahamCampbell\Markdown\Facades\Markdown::class, // MarkDown
-        'Setting'       => App\Setting::class,
-        'Menu'          => Lavary\Menu\Facade::class, // Menu
-        'Theme'         => YAAP\Theme\Facades\Theme::class, // Theme
-        'SEO'           => Artesaos\SEOTools\Facades\SEOTools::class,
+        'Alert'         => UxWeb\SweetAlert\SweetAlert::class,
         'BBCode'        => Golonka\BBCode\Facades\BBCodeParser::class,
         'Breadcrumbs'   => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Markdown'      => GrahamCampbell\Markdown\Facades\Markdown::class, // MarkDown
+        'Menu'          => Lavary\Menu\Facade::class, // Menu
+        'SEO'           => Artesaos\SEOTools\Facades\SEOTools::class,
+        'Setting'       => App\Setting::class,
         'Socialite'     => Laravel\Socialite\Facades\Socialite::class,
-        'Alert'         => UxWeb\SweetAlert\SweetAlert::class,
+        'Theme'         => YAAP\Theme\Facades\Theme::class, // Theme
     ],
 
 ];
