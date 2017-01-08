@@ -17,42 +17,28 @@
 	<a id="post-{{$post->id}}"></a>
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<div class="col-md-3 col-xs-12">
-
-			<div class="media">
-			  <div class="media-left">
-			    <a href="/&#64;{{ strtolower($post->user->name) }}">
-			      <img class="media-object wrapimg" src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=100" alt="Go to {{ $post->user->name }}'s profile">
-			    </a>
-			  </div>
-			  <div class="media-body">
-			    <h4 class="media-heading"><strong>{{ $post->user->name }}</strong>
-				@if ( $post->user->isOnline() )
-					<small><span class="user-online">Online</span></small>
-				@else
-					<small><span class="user-offline">Offline</span></small>
-				@endif
-				</h4>
-				<p><strong>XP</strong>: +{{ $post->user->xp->points }}</p>
-				<p><strong>Joined</strong>: {{ $post->user->created_at->format('d/m/Y') }}</p>
-				<p><strong>Posts</strong>: {{ $post->user->forumposts->count() }} {{ str_plural('post', $post->user->forumposts->count()) }}</p>
-			  </div>
-			</div>
-
-				{{-- <h3 style="margin-top: 0;">{{ $post->user->name }}</h3>
-				<a href="/users/{{ $post->user->name }}" class="thumbnail">
-					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=150">
-				</a>
-				@if ( $post->user->isOnline() )
-					<p><span class="user-online">Online</span></p>
-				@else
-					<p><span class="user-offline">Offline</span></p>
-				@endif
-				<p><strong>XP</strong>: +{{ $post->user->xp->points }}</p>
-				<p><strong>Joined</strong>: {{ $post->user->created_at->format('d/m/Y') }}</p>
-				<p><strong>Posts</strong>: {{ $post->user->forumposts->count() }} {{ str_plural('post', $post->user->forumposts->count()) }}</p> --}}
-
-
+			<div class="col-md-3 col-xs-12" id="postbit">
+				<div class="media">
+				  <div class="media-left">
+				    <a href="/&#64;{{ strtolower($post->user->name) }}">
+				      <img class="media-object wrapimg" src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=100" alt="Go to {{ $post->user->name }}'s profile">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading"><strong>{{ $post->user->name }}</strong>
+					@if ( $post->user->isOnline() )
+						<small><span class="user-online">Online</span></small>
+					@else
+						<small><span class="user-offline">Offline</span></small>
+					@endif
+					</h4>
+					@if ( $post->user->xp )
+					<p><strong>XP</strong>: +{{ $post->user->xp->points }}</p>
+					@endif
+					<p><strong>Joined</strong>: {{ $post->user->created_at->format('d/m/Y') }}</p>
+					<p><strong>Posts</strong>: {{ $post->user->forumposts->count() }} {{ str_plural('post', $post->user->forumposts->count()) }}</p>
+				  </div>
+				</div>
 			</div>
 			<div class="col-md-9 col-xs-12">
 				<div id="post-content">
@@ -61,10 +47,14 @@
 				<div class="clearfix clear"></div>
 				<div class="reaction-strip">
 					<div class="pull-right">
-					@if ( ! $post->reactions->where('user_id', Auth::user()->id)->where('post_id', $post->id)->first() )
-						@include('forums.posts.reaction_strip')
-					@else
+					@if ( $post->user->id == Auth::user()->id )
 						@include('forums.posts.reaction_strip_disabled')
+					@else
+						@if ( ! $post->reactions->where('user_id', Auth::user()->id)->where('post_id', $post->id)->first() )
+							@include('forums.posts.reaction_strip')
+						@else
+							@include('forums.posts.reaction_strip_disabled')
+						@endif
 					@endif
 					</div>
 					&nbsp;

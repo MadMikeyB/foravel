@@ -9,8 +9,8 @@ use App\Http\Requests;
 
 use App\Reaction;
 
-use Auth;
-use Event;
+use App\User;
+// use Event;
 
 class ReactionsController extends Controller
 {
@@ -31,7 +31,9 @@ class ReactionsController extends Controller
 
         	$reaction = new Reaction($request->all());
         	$reaction->save();
-			Auth::user()->xp()->increment('points', 25);
+        	
+        	$user = User::find($user_id);
+			$user->xp()->increment('points', 25);
         	// return Event::fire( new ReactionCreated(Auth::user()) );
 
         	// echo json_encode($reaction);
