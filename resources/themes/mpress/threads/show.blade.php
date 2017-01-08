@@ -47,6 +47,7 @@
 				<div class="clearfix clear"></div>
 				<div class="reaction-strip">
 					<div class="pull-right">
+				@if ( Auth::check() )
 					@if ( $post->user->id == Auth::user()->id )
 						@include('forums.posts.reaction_strip_disabled')
 					@else
@@ -56,6 +57,9 @@
 							@include('forums.posts.reaction_strip_disabled')
 						@endif
 					@endif
+				@else
+					@include('forums.posts.reaction_strip_disabled')
+				@endif
 					</div>
 					&nbsp;
 				</div>
