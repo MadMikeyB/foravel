@@ -66,22 +66,26 @@
 			</div>
 		</div>
 		<div class="panel-footer">
+		@if ( Auth::check() )
 			<a href="" class="btn btn-default btn-xs" data-tooltip="Quote Post">
 				<i class="fa fa-comment-o"></i>
 			</a>
+			@can('edit-post', $post)
 			<a href="/forums/{{ $post->thread->forum->slug }}/{{ $post->thread->slug }}/replies/{{ $post->id }}/edit" class="btn btn-default btn-xs" data-tooltip="Edit Post">
 				<i class="fa fa-pencil"></i>
 			</a>
+			@endcan
 			<a href="" class="btn btn-default btn-xs" data-tooltip="Report Post">
 				<i class="fa fa-warning"></i>
 			</a>
 			<a href="" class="btn btn-default btn-xs" data-tooltip="Delete Post">
 				<i class="fa fa-trash"></i>
 			</a>
-
+		@endif
 			<div class="pull-right">
 				<span class="text-muted" data-tooltip="{{ $post->created_at }}">Posted {{ $post->created_at->diffForHumans() }}</span>
 			</div>
+			&nbsp;
 		</div>
 	</div>
 	@endforeach
