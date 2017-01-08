@@ -6,10 +6,10 @@
 	<p>Member since @datetime($user->created_at)</p>
 	@if ( Auth::user() )
 	@can('follow-user', $user)
-	<a href="#" class="btn btn-default">Follow</a>
+	<a href="#" class="btn btn-default" onclick="alert('coming soon')">Follow</a>
 	@endcan
 	@can('message-user', $user)
-	<a href="#" class="btn btn-default">Message</a>
+	<a href="#" class="btn btn-default" onclick="alert('coming soon')">Message</a>
 	@endcan
 	@can('edit-user', $user)
 		<a href="&#64;{{ $user->slug }}/edit" class="btn btn-primary">Edit Profile</a>
