@@ -62,7 +62,8 @@ class ForumPostController extends Controller
 
         Event::fire(new ForumPostCreated(Auth::user(), $post));
         
-        return redirect('/forums/'. $forum->slug .'/'. $thread->slug .'/#post-'. $post->id  );
+        // return redirect($request->only('redirect_to') . '/#post-' . $post->id);
+        return redirect('/forums/'. $forum->slug .'/'. $thread->slug .'/?page=' . $request->input('last_page') . '#post-'. $post->id  );
     }
 
     /**

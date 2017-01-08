@@ -75,12 +75,16 @@
 				<i class="fa fa-pencil"></i>
 			</a>
 			@endcan
+			@can('report-post', $post)
 			<a href="" class="btn btn-default btn-xs" data-tooltip="Report Post">
 				<i class="fa fa-warning"></i>
 			</a>
+			@endcan
+			@can('delete-post', $post)
 			<a href="" class="btn btn-default btn-xs" data-tooltip="Delete Post">
 				<i class="fa fa-trash"></i>
 			</a>
+			@endcan
 		@endif
 			<div class="pull-right">
 				<span class="text-muted" data-tooltip="{{ $post->created_at }}">Posted {{ $post->created_at->diffForHumans() }}</span>
@@ -105,7 +109,7 @@
 			<div class="col-md-10 col-sm-10 col-xs-12">
 				<form action="/forums/{{ $thread->forum->slug }}/{{ $thread->slug }}" method="POST" role="form">
 					{{ csrf_field() }}
-				
+					<input type="hidden" name="last_page" value="{{ $posts->lastPage() }}">
 					<div class="form-group">
 						<textarea name="content" id="input" class="form-control mp-editor" cols="3" required="required"></textarea>
 					</div>

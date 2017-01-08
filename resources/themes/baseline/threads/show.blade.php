@@ -17,7 +17,7 @@
 			<div class="col-md-2 col-sm-2 col-xs-12">
 				<h2>{{ $post->user->name }}</h2>
 				<a href="/users/{{ $post->user->name }}" class="thumbnail">
-					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?s=200">
+					<img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $post->user->email ) ) ) }}?d=404&s=200">
 				</a>
 			</div>
 			<div class="col-md-10 col-sm-10 col-xs-12">
