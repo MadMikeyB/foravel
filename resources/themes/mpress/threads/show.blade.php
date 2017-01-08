@@ -54,8 +54,21 @@
 
 
 			</div>
-			<div class="col-md-7 col-xs-12" id="post-content">
-				{!! $post->content !!}
+			<div class="col-md-9 col-xs-12">
+				<div id="post-content">
+					{!! $post->content !!}
+				</div>
+				<div class="clearfix clear"></div>
+				<div class="reaction-strip">
+					<div class="pull-right">
+					@if ( ! $post->reactions->where('user_id', Auth::user()->id)->where('post_id', $post->id)->first() )
+						@include('forums.posts.reaction_strip')
+					@else
+						@include('forums.posts.reaction_strip_disabled')
+					@endif
+					</div>
+					&nbsp;
+				</div>
 			</div>
 		</div>
 		<div class="panel-footer">

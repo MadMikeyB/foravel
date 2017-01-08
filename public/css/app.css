@@ -119,12 +119,44 @@ body {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   opacity: 1; }
 
-#post-content img {
-  width: 100%;
-  cursor: pointer;
-  transition: width 0.3s ease; }
-  #post-content img.full {
-    width: unset !important;
+#post-content {
+  position: relative;
+  min-height: 200px;
+  margin-bottom: 5rem; }
+  #post-content img {
+    width: 100%;
+    cursor: pointer;
     transition: width 0.3s ease; }
+    #post-content img.full {
+      width: unset !important;
+      transition: width 0.3s ease; }
+
+.reaction-strip {
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd; }
+
+.reaction {
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0.1rem; }
+  .reaction:hover, .reaction:focus {
+    text-decoration: none;
+    outline: none; }
+    .reaction:hover i, .reaction:focus i {
+      opacity: 1; }
+  .reaction i {
+    opacity: 0.5;
+    text-decoration: none;
+    transition: all 0.3s ease; }
+    .reaction i:hover {
+      opacity: 1; }
+  .reaction .total {
+    font-weight: bold; }
 
 /*# sourceMappingURL=app.css.map */

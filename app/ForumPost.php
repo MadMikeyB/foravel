@@ -27,4 +27,9 @@ class ForumPost extends Model
     {
     	return $this->belongsTo('App\User');
     }
+
+    public function reactions()
+    {
+    	return $this->hasMany('App\Reaction', 'post_id');
+    }
 }

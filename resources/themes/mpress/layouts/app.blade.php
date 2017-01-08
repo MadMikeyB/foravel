@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 
         {!! SEO::generate() !!}
 
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}" type="text/css">
     <!-- wysihtml5 editor -->
     <link rel="stylesheet" href="{{ Theme::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css', null, true) }}">
+	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">

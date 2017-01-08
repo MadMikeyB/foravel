@@ -100,7 +100,7 @@ else
 	        // Update Profile
 	        Route::patch('@{user}', 'ProfileController@update');
 	        // Deactivate Profile
-	        Route::get('@{user}/deactivate', 'ProfileContoller@deactivate');
+	        Route::get('@{user}/deactivate', 'ProfileController@deactivate');
 	        // Delete Profile
 	        Route::delete('@{user}/delete', 'ProfileController@destroy');
 
@@ -121,9 +121,12 @@ else
 	        Route::post('forums/{forums}/{threads}', 'ForumPostController@store');
 	        // Store Post
 	        Route::post('forums/{forums}', 'ThreadController@store');
+
+		// Reactions
+			// Store Reaction
+			Route::post('api/react', 'ReactionsController@store');
+			
 	});
-
-
 
 	Route::group(['middleware' => ['web', 'menu']], function()
 	{
