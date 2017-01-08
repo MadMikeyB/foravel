@@ -48,13 +48,21 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('delete-post', function ($user, $post) {
             return $user->id === $post->user_id;
         });
-        // Can Delete Post
+        // Can Report Post
         $gate->define('report-post', function ($user, $post) {
             return true;
         });
         // Can Edit User
         $gate->define('edit-user', function ($user, $loggedInUser) {
             return $user->id === $loggedInUser->id;
+        });
+        // Can Follow User
+        $gate->define('follow-user', function ($user, $loggedInUser) {
+            return true;
+        });
+        // Can Message User
+        $gate->define('message-user', function ($user, $loggedInUser) {
+            return true;
         });
     }
 }

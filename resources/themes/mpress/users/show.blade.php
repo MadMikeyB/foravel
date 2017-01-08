@@ -4,13 +4,17 @@
 <div class="jumbotron">
 	<h2>{{$user->name}}</h2>
 	<p>Member since @datetime($user->created_at)</p>
-			@if ( Auth::user() )
-			<a href="#" class="btn btn-default">Follow</a>
-			<a href="#" class="btn btn-default">Message</a>
-			@can('edit-user', $user)
-				<a href="&#64;{{ $user->slug }}/edit" class="btn btn-primary">Edit Profile</a>
-			@endcan
-			@endif
+	@if ( Auth::user() )
+	@can('follow-user', $user)
+	<a href="#" class="btn btn-default">Follow</a>
+	@endcan
+	@can('message-user', $user)
+	<a href="#" class="btn btn-default">Message</a>
+	@endcan
+	@can('edit-user', $user)
+		<a href="&#64;{{ $user->slug }}/edit" class="btn btn-primary">Edit Profile</a>
+	@endcan
+	@endif
 </div>
 
 <div class="box">
