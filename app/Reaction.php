@@ -19,14 +19,4 @@ class Reaction extends Model
     {
     	return $this->belongsTo('App\ForumPost');
     }
-
-    public function countReactions($post_id, $reaction)
-    {
-    	return Reaction::where(['post_id' => $post_id, 'reaction' => $reaction])->count();
-    }
-
-    public function hasReacted($post)
-    {
-    	return Reaction::where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->first();
-    }
 }
