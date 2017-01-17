@@ -43,14 +43,14 @@
 				@if ( $forum->threads->last() )
 				<div class="media">
 				  <div class="media-right">
-				    <a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}" class="avatar @if ( $forum->threads->last()->user->isOnline() ) online @else offline @endif">
-				      <img class="media-object wrapimg" src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $forum->threads->last()->user->email ) ) ) }}?s=50" alt="{{ $forum->threads->last()->title }} - last post by {{ $forum->threads->last()->user->name }}">
+				    <a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}" class="avatar @if ( $forum->lastPoster()->isOnline() ) online @else offline @endif">
+				      <img class="media-object wrapimg" src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( $forum->lastPoster()->email ) ) ) }}?s=50" alt="{{ $forum->threads->last()->title }} - last post by {{ $forum->lastPoster()->name }}">
 				    </a>
 				  </div>
 				  <div class="media-body">
 				    <h4 class="media-heading"><a href="/forums/{{ $forum->slug }}/{{ $forum->threads->last()->slug }}">{{ $forum->threads->last()->title }}</a></h4>
 						<small class="text-muted">{{ $forum->updated_at->diffForHumans() }}</small>
-						<small class="text-muted"><a href="/&#64;{{ $forum->threads->last()->user->slug }}"><strong>{{ $forum->threads->last()->user->name }}</strong></a></small>
+						<small class="text-muted"><a href="/&#64;{{ $forum->lastPoster()->slug }}"><strong>{{ $forum->lastPoster()->name }}</strong></a></small>
 				  </div>
 				</div>
 				@endif

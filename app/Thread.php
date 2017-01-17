@@ -28,7 +28,7 @@ class Thread extends Model implements SluggableInterface
 
     public function posts()
     {
-    	return $this->hasMany('App\ForumPost')->orderBy('id', 'asc');
+    	return $this->hasMany('App\ForumPost');
     }
 
     public function user()
